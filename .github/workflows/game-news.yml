@@ -1,0 +1,51 @@
+name: 游戏新闻自动生成
+
+on:
+  schedule:
+    # 北京时间 8:00 = UTC 0:00, 北京时间 20:00 = UTC 12:00
+    - cron: '0 0,12 * * *'
+  workflow_dispatch:  # 支持手动触发
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  generate-news:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      - name: 检出代码
+        uses: actions/checkout@v4
+
+      - name: 设置 Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - name: 安装中文字体
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq fonts-noto-cjk fonts-wqy-microhei 2>/dev/null || true
+
+      - name: 安装 Python 依赖
+        run: |
+          pip install -r requirements.txt
+
+      - name: 生成游戏新闻长图
+        run: |
+          python game_news_generator.py
+
+      - name: 上传产出物
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: '.'
+
+      - name: 部署到 GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
