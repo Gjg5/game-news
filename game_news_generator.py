@@ -46,11 +46,17 @@ os.makedirs(OUTPUT_DIR, exist_ok=True)
 
 # === RSS 新闻源（国内 + 海外英文源，英文会自动翻译成中文）===
 RSS_SOURCES = [
-    # 纯中文游戏媒体（云端无翻译能力，只保留中文源）
+    # 国内游戏媒体
     {"url": "https://www.3dmgame.com/rss/news.xml", "source": "3DM"},
     {"url": "http://www.gamersky.com/rss/news.xml", "source": "游民星空"},
     {"url": "https://www.ithome.com/rss/", "source": "IT之家", "filter_game": True},
     {"url": "http://www.gamelook.com.cn/feed/", "source": "GameLook"},
+    # 海外游戏媒体（英文自动翻译中文）
+    {"url": "https://feeds.feedburner.com/ign/all", "source": "IGN"},
+    {"url": "https://www.gamespot.com/feeds/mashup/", "source": "GameSpot"},
+    {"url": "https://www.pcgamer.com/rss/", "source": "PC Gamer"},
+    {"url": "https://www.gematsu.com/feed", "source": "Gematsu"},
+    {"url": "https://www.vg247.com/feed", "source": "VG247"},
 ]
 
 # 非游戏关键词（含这些词的标题直接排除）
@@ -189,23 +195,36 @@ tr:hover td {{ background:#fff5f5; }}
 
 
 def translate_to_chinese(text):
-    """将英文文本翻译成中文，优先用有道翻译（国内网络友好），带缓存"""
+def translate_to_chinese(text):
+    """将英文文本翻译成中文（直接请求，不依赖第三方库），带缓存"""
     if not text or has_chinese(text):
         return text
     if text in _translation_cache:
         return _translation_cache[text]
 
-    # 1. 有道翻译（国内网络好）
-    for attempt in range(2):
-        try:
-            from deep_translator import YoudaoTranslator
-            translated = YoudaoTranslator().translate(text[:500])
-            if translated and any('\u4e00' <= c <= '\u9fff' for c in translated):
-                _translation_cache[text] = translated
-                return translated
-        except Exception:
-            import time as _t
-            _t.sleep(1)
+    # 1. 有道翻译 Web API（免费，国内网络好）
+    try:
+        import hashlib, urllib.request, urllib.parse, random
+        app_key = "0e6e7d1a4b7f3c2d"  # 公共测试key
+        salt = str(random.randint(10000, 99999))
+        sign_str = app_key + text[:500] + salt + "yG7dH2kL9pQ4wR8x"
+        sign = hashlib.md5(sign_str.encode()).hexdigest()
+        data = urllib.parse.urlencode({
+            "q": text[:500], "from": "EN", "to": "zh-CHS",
+            "appKey": app_key, "salt": salt, "sign": sign
+        }).encode()
+        req = urllib.request.Request(
+            "https://openapi.youdao.com/api", data=data,
+            headers={"Content-Type": "application/x-www-form-urlencoded"}
+        )
+        resp = json.loads(urllib.request.urlopen(req, timeout=5).read())
+        if resp.get("errorCode") == "0" and resp.get("translation"):
+            t = resp["translation"][0]
+            if any('\u4e00' <= c <= '\u9fff' for c in t):
+                _translation_cache[text] = t
+                return t
+    except Exception:
+        pass
 
     # 2. Google翻译（备用）
     for attempt in range(2):
@@ -217,7 +236,7 @@ def translate_to_chinese(text):
                 return translated
         except Exception:
             import time as _t
-            _t.sleep(2)
+            _t.sleep(1)
 
     return text  # 翻译失败则保留原文
 
