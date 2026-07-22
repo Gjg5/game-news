@@ -661,6 +661,14 @@ def main():
             json.dump(remaining, f, ensure_ascii=False, indent=2)
         print(f"  🗑️ 从新闻池移除 {len(entries)} 条，剩余 {len(remaining)} 条")
 
+    # 更新池展示页
+    try:
+        import subprocess
+        subprocess.run(["python", "realtime_monitor.py", "--generate-pool-only"],
+                       capture_output=True)
+    except:
+        pass
+
     # 生成 index.html
     html_content = f"""<!DOCTYPE html>
 <html lang="zh-CN">

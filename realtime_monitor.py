@@ -85,6 +85,49 @@ def save_pool(items):
     with open(POOL_FILE, "w", encoding="utf-8") as f:
         json.dump(items, f, ensure_ascii=False, indent=2)
 
+def generate_pool_html(items):
+    """生成新闻池展示页"""
+    now = datetime.now(BJT).strftime("%m/%d %H:%M")
+    rows = """"""
+    for i, item in enumerate(items, 1):
+        title = item.get("title", "")
+        source = item.get("source", "")
+        link = item.get("link", "")
+        date = item.get("date", "")
+        title_cell = f'<a href="{link}" target="_blank">{title}</a>' if link else title
+        rows += f'<tr><td class="num">{i}</td><td>{title_cell}</td><td class="src">{source}</td><td class="date">{date}</td></tr>\n'
+
+    html = f"""<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>游戏新闻 · 待发池</title>
+<style>
+* {{ margin:0; padding:0; box-sizing:border-box; }}
+body {{ font-family:-apple-system,"PingFang SC",sans-serif; background:#f5f5f5; padding:20px; }}
+.header {{ text-align:center; padding:24px; background:linear-gradient(135deg,#1a73e8,#0d47a1); color:white; border-radius:12px; margin-bottom:20px; }}
+.header h1 {{ font-size:22px; }} .header p {{ font-size:13px; opacity:0.8; margin-top:4px; }}
+table {{ width:100%; border-collapse:collapse; background:white; border-radius:8px; overflow:hidden; box-shadow:0 2px 8px rgba(0,0,0,0.06); }}
+th {{ background:#1a73e8; color:white; padding:10px 12px; text-align:left; font-size:13px; }}
+td {{ padding:10px 12px; border-bottom:1px solid #eee; font-size:13px; color:#333; }}
+tr:hover td {{ background:#e8f0fe; }}
+.date {{ color:#999; font-size:12px; white-space:nowrap; }}
+.num {{ color:#bbb; font-size:12px; width:40px; text-align:center; }}
+.src {{ color:#1a73e8; font-size:12px; }}
+.footer {{ text-align:center; color:#bbb; font-size:12px; padding:20px; }}
+a {{ color:#333; text-decoration:none; }} a:hover {{ color:#1a73e8; text-decoration:underline; }}
+.badge {{ display:inline-block; background:#1a73e8; color:white; border-radius:10px; padding:2px 8px; font-size:11px; }}
+</style></head>
+<body>
+<div class="header"><h1>📦 游戏新闻 · 待发池</h1><p>共 {len(items)} 条 · 更新于 {now} · 每日8:00/20:00生成长图后清空</p></div>
+<table>
+<tr><th class="num">#</th><th>新闻标题</th><th>来源</th><th>入库时间</th></tr>
+{rows}</table>
+<div class="footer">GitHub Actions 实时监控每30分钟更新</div>
+</body></html>"""
+    with open("pool.html", "w", encoding="utf-8") as f:
+        f.write(html)
+    print(f"  🌐 pool.html 已更新")
+
 def load_history_fingerprints():
     """加载已发送历史的指纹"""
     if not os.path.exists("news_history.json"):
@@ -145,14 +188,19 @@ def main():
             pass
 
     if new_items:
-        # 存入新闻池（最新在前）
         pool = new_items + pool
         save_pool(pool)
         print(f"\n🆕 {len(new_items)} 条 → 新闻池 (共{len(pool)}条)")
-        send_email(new_items)
     else:
         print(f"  ✅ 无新新闻 (池中{len(pool)}条)")
         save_pool(pool)
+    generate_pool_html(pool)
 
 if __name__ == "__main__":
-    main()
+    import sys
+    if "--generate-pool-only" in sys.argv:
+        # 仅重新生成 pool.html（被每日生成器调用）
+        pool = load_pool()
+        generate_pool_html(pool)
+    else:
+        main()
