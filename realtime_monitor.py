@@ -138,7 +138,7 @@ def generate_pool_html(items):
 <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>游戏新闻 · 待发池</title>
 <script>
-function updateClock(){{var n=new Date;n=new Date(n.getTime()+8*3600000);var e=n.toISOString().slice(0,10).replace(/-/g,"/")+" "+n.toTimeString().slice(0,8);document.getElementById("bjtime").textContent="🕐 北京时间 "+e}}setInterval(updateClock,1e3);</script>
+function updateClock(){{var d=new Date;var s=d.toLocaleString("zh-CN",{{timeZone:"Asia/Shanghai",hour:"2-digit",minute:"2-digit",second:"2-digit",year:"numeric",month:"2-digit",day:"2-digit"}});document.getElementById("bjtime").textContent="🕐 北京时间 "+s}}setInterval(updateClock,1e3);updateClock();</script>
 <style>
 * {{ margin:0; padding:0; box-sizing:border-box; }}
 body {{ font-family:-apple-system,"PingFang SC",sans-serif; background:#f5f5f5; padding:20px; }}
