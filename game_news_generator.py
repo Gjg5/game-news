@@ -137,7 +137,9 @@ def fetch_news():
     for src in RSS_SOURCES:
         try:
             feed = feedparser.parse(src["url"])
-            for entry in feed.entries[:10]:  # 每个源取更多条目以便过滤后还有余量
+            # 海外源只取前3条，国内源取前10条
+            limit = 3 if not src["source"] in ["3DM", "游民星空", "IT之家"] else 10
+            for entry in feed.entries[:limit]:
                 title = entry.get("title", "").strip()
                 if not title or title in seen_titles:
                     continue
@@ -185,13 +187,23 @@ def fetch_news():
 
 
 def categorize_news(entries, max_per_cat=5):
-    """将新闻按关键词分类"""
+    """将新闻按关键词分类，严格限制英文内容"""
     categories = defaultdict(list)
     categorized_titles = set()
+
+    # 统计中英文数量
+    en_count = 0
+    max_en_total = 3  # 整张图最多3条英文
 
     for entry in entries:
         title_lower = entry["title"].lower()
         text = title_lower + " " + entry["summary"].lower()
+
+        # 英文条目数量限制
+        if not entry["has_chinese"]:
+            if en_count >= max_en_total:
+                continue
+            en_count += 1
 
         best_cat = None
         best_score = 0
@@ -206,10 +218,10 @@ def categorize_news(entries, max_per_cat=5):
             categories[best_cat].append(entry)
             categorized_titles.add(entry["title"])
 
-    # 补充：未分类的归入"新游动态"或"行业风云"
+    # 补充未分类条目（仅限中文）
     misc_cats = ["🎮 新游动态", "🏢 行业风云"]
     for entry in entries:
-        if entry["title"] not in categorized_titles:
+        if entry["title"] not in categorized_titles and entry["has_chinese"]:
             for mc in misc_cats:
                 if len(categories[mc]) < max_per_cat:
                     categories[mc].append(entry)
