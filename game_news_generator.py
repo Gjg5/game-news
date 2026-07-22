@@ -572,7 +572,8 @@ def main():
         all_titles.append(e.get("title_raw", e["title"]))
 
     if not entries:
-        print("  ⏭️ 没有新新闻，跳过本次生成")
+        print("  ⏭️ 没有新新闻，但仍更新历史页面")
+        history.generate_history_html("history.html")
         return
 
     categorized = categorize_news(entries)
