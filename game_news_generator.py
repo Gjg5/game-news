@@ -640,8 +640,18 @@ def main():
 
     print(f"  📦 池中共 {len(pool)} 条新闻")
 
-    # 取最新最多20条
-    entries = pool[:20]
+    # 取最新最多20条，同时保证来源多样性
+    selected = []
+    seen_sources = {}
+    for item in pool:
+        src = item.get("source", "")
+        if src in seen_sources and seen_sources[src] >= 3:
+            continue  # 同一来源最多3条
+        seen_sources[src] = seen_sources.get(src, 0) + 1
+        selected.append(item)
+        if len(selected) >= 20:
+            break
+    entries = selected
     print(f"  📰 本次使用 {len(entries)} 条")
 
     # 分类（从fetch_news移过来的分类逻辑）
