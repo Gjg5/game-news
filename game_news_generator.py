@@ -40,20 +40,50 @@ BJT = timezone(timedelta(hours=8))
 OUTPUT_DIR = "outputs"
 os.makedirs(OUTPUT_DIR, exist_ok=True)
 
-# === RSS 新闻源 ===
+# === RSS 新闻源（仅保留纯游戏媒体，删除非游戏站点）===
 RSS_SOURCES = [
-    # 国内游戏媒体
+    # 国内游戏媒体（优先）
     {"url": "https://www.3dmgame.com/rss/news.xml", "source": "3DM"},
     {"url": "http://www.gamersky.com/rss/news.xml", "source": "游民星空"},
-    {"url": "https://www.ithome.com/rss/", "source": "IT之家"},
-    {"url": "https://feed.smzdm.com/", "source": "什么值得买"},
-    # 海外游戏媒体
+    {"url": "https://www.ithome.com/rss/", "source": "IT之家", "filter_game": True},  # IT之家内容杂，需过滤
+    # 海外游戏媒体（英文内容会自动降权）
     {"url": "https://feeds.feedburner.com/ign/all", "source": "IGN"},
     {"url": "https://www.gamespot.com/feeds/mashup/", "source": "GameSpot"},
     {"url": "https://www.pcgamer.com/rss/", "source": "PC Gamer"},
     {"url": "https://www.gematsu.com/feed", "source": "Gematsu"},
     {"url": "https://www.eurogamer.net/feed", "source": "Eurogamer"},
     {"url": "https://www.vg247.com/feed", "source": "VG247"},
+]
+
+# 非游戏关键词（含这些词的标题直接排除）
+NON_GAME_KEYWORDS = [
+    "手机", "芯片", "处理器", "半导体", "固态", "硬盘", "内存条", "DDR",
+    "摄像头", "传感器", "汽车", "新能源", "自动驾驶", "显示器", "笔记本",
+    "平板", "耳机", "音箱", "充电", "电池", "快充", "数码", "家电",
+    "空调", "冰箱", "洗衣机", "电视", "投影", "路由器", "WiFi",
+    "操作系统", "鸿蒙OS", "iOS", "Android", "系统更新", "大模型",
+    "AI绘画", "AI写作", "AI对话", "ChatGPT", "大语言模型",
+    "评测", "开箱", "体验", "壁纸", "红包", "优惠", "折扣",
+    "deal", "sale", "discount", "coupon", "review",
+]
+
+# 游戏相关关键词（标题或摘要必须包含至少一个才算游戏新闻）
+GAME_REQUIRED_KEYWORDS = [
+    "游戏", "gam", "play", "游", "电竞", "e-sport", "console",
+    "PS5", "PS4", "Xbox", "Switch", "Steam", "Epic", "PC",
+    "任天堂", "索尼", "微软", "腾讯", "网易", "米哈游",
+    "Nintendo", "Sony", "Microsoft", "PlayStation",
+    "更新", "版本", "赛季", "联动", "上线", "发售", "测试",
+    "update", "patch", "season", "release", "launch",
+    "DLC", "DLC", "资料片", "expansion",
+    "收购", "裁员", "投资", "并购", "acquisition", "layoff", "invest",
+    "主机", "显卡", "GPU", "光追", "虚幻", "Unreal", "Unity",
+    "手游", "端游", "页游", "MMO", "RPG", "FPS", "ARPG",
+    "赛事", "比赛", "冠军", "战队", "选手", "tournament",
+    "IGN", "评分", "评测", "review", "score",
+    "预告", "trailer", "实机", "gameplay", "演示",
+    "角色", "皮肤", "武器", "地图", "mode", "模式",
+    "独立", "indie", "3A", "大作",
 ]
 
 # 颜色方案
@@ -80,15 +110,34 @@ CATEGORY_KEYWORDS = {
 }
 
 
+def is_gaming_related(title, summary):
+    """判断内容是否与游戏相关"""
+    text = (title + " " + summary).lower()
+    # 先排除明显非游戏内容
+    for kw in NON_GAME_KEYWORDS:
+        if kw.lower() in text:
+            return False
+    # 必须有游戏关键词
+    for kw in GAME_REQUIRED_KEYWORDS:
+        if kw.lower() in text:
+            return True
+    return False
+
+
+def has_chinese(text):
+    """判断是否包含中文字符"""
+    return bool(re.search(r'[\u4e00-\u9fff]', text))
+
+
 def fetch_news():
-    """从RSS源获取最新游戏新闻"""
+    """从RSS源获取最新游戏新闻，过滤非游戏内容"""
     all_entries = []
     seen_titles = set()
 
     for src in RSS_SOURCES:
         try:
             feed = feedparser.parse(src["url"])
-            for entry in feed.entries[:8]:
+            for entry in feed.entries[:10]:  # 每个源取更多条目以便过滤后还有余量
                 title = entry.get("title", "").strip()
                 if not title or title in seen_titles:
                     continue
@@ -96,7 +145,15 @@ def fetch_news():
 
                 summary = entry.get("summary", entry.get("description", "")).strip()
                 summary = re.sub(r'<[^>]+>', '', summary)
-                summary = html.unescape(summary)[:100]
+                summary = html.unescape(summary)[:120]
+
+                # 非游戏内容过滤
+                if not is_gaming_related(title, summary):
+                    continue
+
+                # IT之家等综合站需要严格过滤
+                if src.get("filter_game") and not has_chinese(title):
+                    continue
 
                 published = entry.get("published_parsed") or entry.get("updated_parsed")
                 pub_time = None
@@ -104,19 +161,26 @@ def fetch_news():
                     from time import mktime
                     pub_time = datetime.fromtimestamp(mktime(published), tz=timezone.utc)
 
+                # 判断语言：中文新闻加分
+                has_cn = has_chinese(title)
+
                 all_entries.append({
                     "title": title,
                     "summary": summary,
                     "source": src["source"],
                     "time": pub_time,
                     "link": entry.get("link", ""),
+                    "has_chinese": has_cn,
                 })
         except Exception as e:
             print(f"  [跳过] {src['source']}: {e}")
             continue
 
-    # 按时间排序，取最新的
-    all_entries.sort(key=lambda x: x["time"] or datetime.min.replace(tzinfo=timezone.utc), reverse=True)
+    # 排序：中文优先，再按时间
+    all_entries.sort(key=lambda x: (
+        0 if x["has_chinese"] else 1,
+                -(x["time"].timestamp() if x["time"] else 0)
+    ))
     return all_entries[:40]
 
 
