@@ -30,15 +30,25 @@ def fingerprint(title):
 def has_chinese(text):
     return bool(re.search(r'[\u4e00-\u9fff]', str(text)))
 
-# 非游戏关键词过滤
+# 非游戏关键词过滤（含这些词直接排除）
 NON_GAME_KW = ["手机","芯片","处理器","半导体","固态","硬盘","汽车","新能源","显示器",
                "笔记本","平板","耳机","音箱","充电","空调","冰箱","洗衣机","电视","投影",
-               "路由器","操作系统","AI对话","大模型","评测","开箱","红包","优惠"]
+               "路由器","操作系统","AI对话","大模型","评测","开箱","红包","优惠",
+               "传感器","合资","半导体","物流","快递","发货","退款","英特尔","酷睿",
+               "AMD","CPU","内存","SSD","NAS","5G","6G","WiFi","蓝牙","USB",
+               "电动汽车","自动驾驶","激光雷达","光伏","锂电","电池","充电桩",
+               "Mac","macOS","iOS","Android","鸿蒙","Claude","Copilot",
+               "视觉传感器","制造业","工业","制造","投资","股票","基金","理财",
+               "家电","空调","冰箱","洗衣机","扫地机","吸尘器","厨房"]
 
 GAME_KW = ["游戏","gam","play","电竞","PS5","Xbox","Switch","Steam","任天堂","索尼","微软",
            "腾讯","网易","米哈游","更新","版本","赛季","联动","上线","发售","测试",
            "收购","裁员","投资","主机","显卡","GPU","光追","虚幻","手游","端游",
-           "赛事","战队","选手","IGN","评分","预告","皮肤","DLC","3A","大作"]
+           "赛事","战队","选手","IGN","评分","预告","皮肤","DLC","3A","大作",
+           "PlayStation","Nintendo","PC","console","trailer","gameplay",
+           "评测","角色","武器","地图","皮肤","武器","战斗","动作","冒险",
+           "RPG","FPS","ARPG","MMO","MOBA","格斗","射击","竞速","模拟",
+           "Steam Deck","Switch 2","PS4","PS5 Pro","Xbox Series"]
 
 def is_gaming(text):
     t = (text or "").lower()
@@ -167,8 +177,13 @@ def main():
                 # 跳过已在池中 或 已发送过的
                 if fp in pool_fps or fp in history_fps:
                     continue
-                # 非游戏内容过滤
+                # 非游戏内容过滤（IT之家等综合站严格过滤）
                 if not is_gaming(title):
+                    continue
+                # IT之家只有标题明显有游戏关键词才收
+                if src["source"] == "IT之家" and not has_chinese(title):
+                    continue
+                if src["source"] == "IT之家" and not any(kw in (title or "") for kw in ["游戏","PS5","Xbox","Switch","Steam","电竞","Steam Deck","PS4","Xbox Series"]):
                     continue
                 summary = re.sub(r'<[^>]+>', '', entry.get("summary","") or "")
                 summary = html.unescape(summary)[:100]
