@@ -129,16 +129,19 @@ class NewsHistory:
         """检查是否已发过"""
         return self._fingerprint(title) in self.entries
 
-    def add(self, title, date_str="", source=""):
+    def add(self, title, date_str="", source="", link=""):
         """标记为已发送"""
         fp = self._fingerprint(title)
         if fp not in self.entries:
-            self.entries[fp] = {"title": title[:60], "date": date_str, "source": source}
+            self.entries[fp] = {"title": title[:60], "date": date_str, "source": source, "link": link}
 
-    def add_batch(self, titles, date_str="", source=""):
+    def add_batch(self, entries_list, date_str="", source="", link=""):
         """批量标记"""
-        for t in titles:
-            self.add(t, date_str, source)
+        for item in entries_list:
+            t = item if isinstance(item, str) else item.get("title", "")
+            s = source or (item.get("source", "") if not isinstance(item, str) else "")
+            l = link or (item.get("link", "") if not isinstance(item, str) else "")
+            self.add(t, date_str, s, l)
 
     def save(self):
         """保存到文件"""
@@ -178,7 +181,9 @@ tr:hover td {{ background:#fff5f5; }}
             title = info.get("title", fp)
             date = info.get("date", "?")
             source = info.get("source", "?")
-            html += f'<tr><td class="num">{i}</td><td>{title}</td><td class="source">{source}</td><td class="date">{date}</td></tr>\n'
+            link = info.get("link", "")
+            title_cell = f'<a href="{link}" target="_blank" rel="noopener">{title}</a>' if link else title
+            html += f'<tr><td class="num">{i}</td><td>{title_cell}</td><td class="source">{source}</td><td class="date">{date}</td></tr>\n'
         html += """</table>
 <div class="footer">GitHub Actions 自动生成 · 每日8:00/20:00更新</div>
 </body></html>"""
@@ -600,12 +605,13 @@ def main():
     print("📧 正在发送邮件...")
     send_email(filepath, edition, date_str)
 
-    # 记录已发送的新闻到历史（带标题、日期、来源）
+    # 记录已发送的新闻到历史（带标题、日期、来源、原文链接）
     date_short = now_bj.strftime("%Y-%m-%d")
     for e in entries:
         raw_title = e.get("title_raw", e["title"])
         source = e.get("source", edition)
-        history.add(raw_title, date_short, source)
+        link = e.get("link", "")
+        history.add(raw_title, date_short, source, link)
     history.save()
     history.generate_history_html("history.html")
 
