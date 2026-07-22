@@ -40,19 +40,12 @@ BJT = timezone(timedelta(hours=8))
 OUTPUT_DIR = "outputs"
 os.makedirs(OUTPUT_DIR, exist_ok=True)
 
-# === RSS 新闻源（仅保留纯游戏媒体，删除非游戏站点）===
+# === RSS 新闻源（全部国内中文游戏媒体）===
 RSS_SOURCES = [
-    # 国内游戏媒体（优先）
     {"url": "https://www.3dmgame.com/rss/news.xml", "source": "3DM"},
     {"url": "http://www.gamersky.com/rss/news.xml", "source": "游民星空"},
-    {"url": "https://www.ithome.com/rss/", "source": "IT之家", "filter_game": True},  # IT之家内容杂，需过滤
-    # 海外游戏媒体（英文内容会自动降权）
-    {"url": "https://feeds.feedburner.com/ign/all", "source": "IGN"},
-    {"url": "https://www.gamespot.com/feeds/mashup/", "source": "GameSpot"},
-    {"url": "https://www.pcgamer.com/rss/", "source": "PC Gamer"},
-    {"url": "https://www.gematsu.com/feed", "source": "Gematsu"},
-    {"url": "https://www.eurogamer.net/feed", "source": "Eurogamer"},
-    {"url": "https://www.vg247.com/feed", "source": "VG247"},
+    {"url": "https://www.ithome.com/rss/", "source": "IT之家", "filter_game": True},
+    {"url": "http://www.gamelook.com.cn/feed/", "source": "GameLook"},
 ]
 
 # 非游戏关键词（含这些词的标题直接排除）
@@ -137,9 +130,7 @@ def fetch_news():
     for src in RSS_SOURCES:
         try:
             feed = feedparser.parse(src["url"])
-            # 海外源只取前3条，国内源取前10条
-            limit = 3 if not src["source"] in ["3DM", "游民星空", "IT之家"] else 10
-            for entry in feed.entries[:limit]:
+            for entry in feed.entries[:12]:
                 title = entry.get("title", "").strip()
                 if not title or title in seen_titles:
                     continue
@@ -163,47 +154,30 @@ def fetch_news():
                     from time import mktime
                     pub_time = datetime.fromtimestamp(mktime(published), tz=timezone.utc)
 
-                # 判断语言：中文新闻加分
-                has_cn = has_chinese(title)
-
                 all_entries.append({
                     "title": title,
                     "summary": summary,
                     "source": src["source"],
                     "time": pub_time,
                     "link": entry.get("link", ""),
-                    "has_chinese": has_cn,
                 })
         except Exception as e:
             print(f"  [跳过] {src['source']}: {e}")
             continue
 
-    # 排序：中文优先，再按时间
-    all_entries.sort(key=lambda x: (
-        0 if x["has_chinese"] else 1,
-                -(x["time"].timestamp() if x["time"] else 0)
-    ))
+    # 按时间排序，取最新的
+    all_entries.sort(key=lambda x: x["time"] or datetime.min.replace(tzinfo=timezone.utc), reverse=True)
     return all_entries[:40]
 
 
 def categorize_news(entries, max_per_cat=5):
-    """将新闻按关键词分类，严格限制英文内容"""
+    """将新闻按关键词分类"""
     categories = defaultdict(list)
     categorized_titles = set()
-
-    # 统计中英文数量
-    en_count = 0
-    max_en_total = 3  # 整张图最多3条英文
 
     for entry in entries:
         title_lower = entry["title"].lower()
         text = title_lower + " " + entry["summary"].lower()
-
-        # 英文条目数量限制
-        if not entry["has_chinese"]:
-            if en_count >= max_en_total:
-                continue
-            en_count += 1
 
         best_cat = None
         best_score = 0
@@ -218,10 +192,10 @@ def categorize_news(entries, max_per_cat=5):
             categories[best_cat].append(entry)
             categorized_titles.add(entry["title"])
 
-    # 补充未分类条目（仅限中文）
+    # 补充未分类条目
     misc_cats = ["🎮 新游动态", "🏢 行业风云"]
     for entry in entries:
-        if entry["title"] not in categorized_titles and entry["has_chinese"]:
+        if entry["title"] not in categorized_titles:
             for mc in misc_cats:
                 if len(categories[mc]) < max_per_cat:
                     categories[mc].append(entry)
