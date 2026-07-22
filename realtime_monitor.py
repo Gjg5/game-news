@@ -160,6 +160,18 @@ def main():
     print(f"🔍 {now.strftime('%Y-%m-%d %H:%M')} 扫描新闻...")
 
     pool = load_pool()
+    # 翻译池中已有的英文标题
+    translated = 0
+    for item in pool:
+        t = item.get("title", "")
+        if t and not has_chinese(t):
+            cn = translate(t)
+            if cn and cn != t:
+                item["title"] = cn[:60]
+                translated += 1
+    if translated:
+        print(f"  🔤 翻译池中 {translated} 条英文标题")
+
     pool_fps = {item["fp"] for item in pool}
     history_fps = load_history_fingerprints()
     new_items = []
