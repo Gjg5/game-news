@@ -40,12 +40,20 @@ BJT = timezone(timedelta(hours=8))
 OUTPUT_DIR = "outputs"
 os.makedirs(OUTPUT_DIR, exist_ok=True)
 
-# === RSS 新闻源（全部国内中文游戏媒体）===
+# === RSS 新闻源（国内 + 海外英文源，英文会自动翻译成中文）===
 RSS_SOURCES = [
+    # 国内游戏媒体
     {"url": "https://www.3dmgame.com/rss/news.xml", "source": "3DM"},
     {"url": "http://www.gamersky.com/rss/news.xml", "source": "游民星空"},
     {"url": "https://www.ithome.com/rss/", "source": "IT之家", "filter_game": True},
     {"url": "http://www.gamelook.com.cn/feed/", "source": "GameLook"},
+    # 海外游戏媒体（英文标题会被自动翻译）
+    {"url": "https://feeds.feedburner.com/ign/all", "source": "IGN"},
+    {"url": "https://www.gamespot.com/feeds/mashup/", "source": "GameSpot"},
+    {"url": "https://www.pcgamer.com/rss/", "source": "PC Gamer"},
+    {"url": "https://www.gematsu.com/feed", "source": "Gematsu"},
+    {"url": "https://www.eurogamer.net/feed", "source": "Eurogamer"},
+    {"url": "https://www.vg247.com/feed", "source": "VG247"},
 ]
 
 # 非游戏关键词（含这些词的标题直接排除）
@@ -78,6 +86,27 @@ GAME_REQUIRED_KEYWORDS = [
     "角色", "皮肤", "武器", "地图", "mode", "模式",
     "独立", "indie", "3A", "大作",
 ]
+
+# 英文→中文翻译缓存
+_translation_cache = {}
+
+
+def translate_to_chinese(text):
+    """将英文文本翻译成中文，带缓存"""
+    if not text or has_chinese(text):
+        return text
+    if text in _translation_cache:
+        return _translation_cache[text]
+
+    try:
+        from deep_translator import GoogleTranslator
+        translated = GoogleTranslator(source="en", target="zh-CN").translate(text[:1000])
+        if translated:
+            _translation_cache[text] = translated
+            return translated
+    except Exception:
+        pass
+    return text  # 翻译失败则保留原文
 
 # 颜色方案
 BG_COLOR = (248, 248, 248)
@@ -123,14 +152,14 @@ def has_chinese(text):
 
 
 def fetch_news():
-    """从RSS源获取最新游戏新闻，过滤非游戏内容"""
+    """从RSS源获取最新游戏新闻，英文自动翻译"""
     all_entries = []
     seen_titles = set()
 
     for src in RSS_SOURCES:
         try:
             feed = feedparser.parse(src["url"])
-            for entry in feed.entries[:12]:
+            for entry in feed.entries[:10]:
                 title = entry.get("title", "").strip()
                 if not title or title in seen_titles:
                     continue
@@ -148,6 +177,10 @@ def fetch_news():
                 if src.get("filter_game") and not has_chinese(title):
                     continue
 
+                # 英文标题和摘要翻译成中文
+                title_cn = translate_to_chinese(title)
+                summary_cn = translate_to_chinese(summary)
+
                 published = entry.get("published_parsed") or entry.get("updated_parsed")
                 pub_time = None
                 if published:
@@ -155,17 +188,18 @@ def fetch_news():
                     pub_time = datetime.fromtimestamp(mktime(published), tz=timezone.utc)
 
                 all_entries.append({
-                    "title": title,
-                    "summary": summary,
+                    "title": title_cn,
+                    "summary": summary_cn,
                     "source": src["source"],
                     "time": pub_time,
                     "link": entry.get("link", ""),
+                    "has_chinese": has_chinese(title_cn),
                 })
         except Exception as e:
             print(f"  [跳过] {src['source']}: {e}")
             continue
 
-    # 按时间排序，取最新的
+    # 按时间排序
     all_entries.sort(key=lambda x: x["time"] or datetime.min.replace(tzinfo=timezone.utc), reverse=True)
     return all_entries[:40]
 
