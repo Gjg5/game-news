@@ -320,10 +320,13 @@ def main():
 
     if new_items:
         pool = new_items + pool
+        # 只保留最新的20条，超出部分自动淘汰
+        pool = pool[:20]
         save_pool(pool)
         print(f"\n🆕 {len(new_items)} 条 → 新闻池 (共{len(pool)}条)")
     else:
         print(f"  ✅ 无新新闻 (池中{len(pool)}条)")
+        pool = pool[:20]
         save_pool(pool)
     generate_pool_html(pool)
 
