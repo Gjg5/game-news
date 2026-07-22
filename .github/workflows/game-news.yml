@@ -8,10 +8,15 @@ on:
 
 permissions:
   contents: write
+  pages: write
+  id-token: write
 
 jobs:
   generate-news:
     runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
 
     steps:
       - name: 检出代码
@@ -38,10 +43,19 @@ jobs:
         run: |
           python game_news_generator.py
 
-      - name: 提交更新（历史记录+图片+页面到仓库）
+      - name: 提交更新（历史记录到仓库）
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add news_history.json history.html outputs/ -f
-          git diff --cached --quiet || git commit -m "chore: 更新新闻历史记录和页面 [skip ci]"
+          git diff --cached --quiet || git commit -m "chore: 更新新闻历史记录 [skip ci]"
           git push
+
+      - name: 上传产出物到 Pages
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: '.'
+
+      - name: 部署到 GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
