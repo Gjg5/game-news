@@ -38,10 +38,10 @@ jobs:
         run: |
           python game_news_generator.py
 
-      - name: 提交更新（新闻历史+图片到仓库）
+      - name: 提交更新（历史记录+图片+页面到仓库）
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add news_history.json outputs/ -f
-          git diff --cached --quiet || git commit -m "chore: 更新新闻历史记录和图片 [skip ci]"
+          git add news_history.json history.html outputs/ -f
+          git diff --cached --quiet || git commit -m "chore: 更新新闻历史记录和页面 [skip ci]"
           git push

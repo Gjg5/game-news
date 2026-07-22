@@ -96,11 +96,11 @@ _translation_cache = {}
 
 
 class NewsHistory:
-    """已发送新闻历史记录，用于去重"""
+    """已发送新闻历史记录，用于去重和展示"""
 
     def __init__(self, filepath="news_history.json"):
         self.filepath = filepath
-        self.seen = set()
+        self.entries = {}  # fingerprint -> {"title": str, "date": str, "source": str}
         self._load()
 
     def _fingerprint(self, title):
@@ -114,34 +114,79 @@ class NewsHistory:
             try:
                 with open(self.filepath, "r", encoding="utf-8") as f:
                     data = json.load(f)
-                    self.seen = set(data.get("fingerprints", []))
-                print(f"  📚 已加载 {len(self.seen)} 条历史新闻指纹")
+                    # 兼容旧格式（只有指纹列表）
+                    if "fingerprints" in data:
+                        self.entries = {fp: {"title": fp, "date": "?", "source": "?"} for fp in data["fingerprints"]}
+                    else:
+                        self.entries = data.get("entries", {})
+                print(f"  📚 已加载 {len(self.entries)} 条历史新闻")
             except Exception as e:
                 print(f"  ⚠️ 历史记录加载失败: {e}")
-                self.seen = set()
+                self.entries = {}
 
     def is_duplicate(self, title):
         """检查是否已发过"""
-        return self._fingerprint(title) in self.seen
+        return self._fingerprint(title) in self.entries
 
-    def add(self, title):
+    def add(self, title, date_str="", source=""):
         """标记为已发送"""
-        self.seen.add(self._fingerprint(title))
+        fp = self._fingerprint(title)
+        if fp not in self.entries:
+            self.entries[fp] = {"title": title[:60], "date": date_str, "source": source}
 
-    def add_batch(self, titles):
+    def add_batch(self, titles, date_str="", source=""):
         """批量标记"""
         for t in titles:
-            self.add(t)
+            self.add(t, date_str, source)
 
     def save(self):
         """保存到文件"""
         os.makedirs(os.path.dirname(self.filepath) or ".", exist_ok=True)
         with open(self.filepath, "w", encoding="utf-8") as f:
-            json.dump({"fingerprints": sorted(list(self.seen))}, f, ensure_ascii=False, indent=2)
-        print(f"  💾 已保存 {len(self.seen)} 条新闻指纹到 {self.filepath}")
+            json.dump({"entries": self.entries}, f, ensure_ascii=False, indent=2)
+        print(f"  💾 已保存 {len(self.entries)} 条新闻到 {self.filepath}")
+
+    def generate_history_html(self, output_path="history.html"):
+        """生成历史记录展示页"""
+        now = datetime.now(BJT).strftime("%Y-%m-%d %H:%M")
+        rows = sorted(self.entries.items(), key=lambda x: x[1]["date"], reverse=True)
+
+        html = f"""<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>游戏新闻 · 已发送历史</title>
+<style>
+* {{ margin:0; padding:0; box-sizing:border-box; }}
+body {{ font-family: -apple-system, "PingFang SC", sans-serif; background:#f5f5f5; padding:20px; }}
+.header {{ text-align:center; padding:24px; background:linear-gradient(135deg,#d0021b,#a00015); color:white; border-radius:12px; margin-bottom:20px; }}
+.header h1 {{ font-size:22px; }} .header p {{ font-size:13px; opacity:0.8; margin-top:4px; }}
+table {{ width:100%; border-collapse:collapse; background:white; border-radius:8px; overflow:hidden; box-shadow:0 2px 8px rgba(0,0,0,0.06); }}
+th {{ background:#d0021b; color:white; padding:10px 12px; text-align:left; font-size:13px; }}
+td {{ padding:10px 12px; border-bottom:1px solid #eee; font-size:13px; color:#333; }}
+tr:hover td {{ background:#fff5f5; }}
+.date {{ color:#999; font-size:12px; white-space:nowrap; }}
+.num {{ color:#bbb; font-size:12px; width:40px; text-align:center; }}
+.source {{ color:#d0021b; font-size:12px; }}
+.footer {{ text-align:center; color:#bbb; font-size:12px; padding:20px; }}
+</style></head>
+<body>
+<div class="header"><h1>📚 游戏新闻 · 已发送历史</h1><p>共 {len(self.entries)} 条 · 更新于 {now}</p></div>
+<table>
+<tr><th class="num">#</th><th>新闻标题</th><th>来源</th><th>日期</th></tr>"""
+        for i, (fp, info) in enumerate(rows, 1):
+            title = info.get("title", fp)
+            date = info.get("date", "?")
+            source = info.get("source", "?")
+            html += f'<tr><td class="num">{i}</td><td>{title}</td><td class="source">{source}</td><td class="date">{date}</td></tr>\n'
+        html += """</table>
+<div class="footer">GitHub Actions 自动生成 · 每日8:00/20:00更新</div>
+</body></html>"""
+        with open(output_path, "w", encoding="utf-8") as f:
+            f.write(html)
+        print(f"  🌐 历史页面已生成: {output_path}")
 
     def count(self):
-        return len(self.seen)
+        return len(self.entries)
 
 
 def translate_to_chinese(text):
@@ -553,9 +598,14 @@ def main():
     print("📧 正在发送邮件...")
     send_email(filepath, edition, date_str)
 
-    # 记录已发送的新闻到历史
-    history.add_batch(all_titles)
+    # 记录已发送的新闻到历史（带标题、日期、来源）
+    date_short = now_bj.strftime("%Y-%m-%d")
+    for e in entries:
+        raw_title = e.get("title_raw", e["title"])
+        source = e.get("source", edition)
+        history.add(raw_title, date_short, source)
     history.save()
+    history.generate_history_html("history.html")
 
     # 生成 index.html
     html_content = f"""<!DOCTYPE html>
