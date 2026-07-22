@@ -7,8 +7,6 @@ on:
 
 permissions:
   contents: write
-  pages: write
-  id-token: write
 
 jobs:
   monitor:
@@ -27,23 +25,14 @@ jobs:
         run: |
           pip install feedparser requests
 
-      - name: 扫描新新闻 → 存入新闻池
+      - name: 扫描新新闻 → 存入新闻池 + 生成pool.html
         run: |
           python realtime_monitor.py
 
-      - name: 提交更新（池 + 页面）
+      - name: 提交更新到仓库
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add news_pool.json pool.html -f
           git diff --cached --quiet || git commit -m "chore: update news pool [skip ci]"
           git push
-
-      - name: 上传 Pages 产出物
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: '.'
-
-      - name: 部署到 GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
