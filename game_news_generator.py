@@ -114,11 +114,12 @@ class NewsHistory:
             try:
                 with open(self.filepath, "r", encoding="utf-8") as f:
                     data = json.load(f)
-                    # 兼容旧格式（只有指纹列表）
-                    if "fingerprints" in data:
-                        self.entries = {fp: {"title": fp, "date": "?", "source": "?"} for fp in data["fingerprints"]}
-                    else:
-                        self.entries = data.get("entries", {})
+                # 清除旧格式（只有MD5指纹，没有实际标题）
+                if "fingerprints" in data:
+                    print(f"  🧹 清除旧格式数据（{len(data['fingerprints'])} 条无标题指纹）")
+                    self.entries = {}
+                    return
+                self.entries = data.get("entries", {})
                 print(f"  📚 已加载 {len(self.entries)} 条历史新闻")
             except Exception as e:
                 print(f"  ⚠️ 历史记录加载失败: {e}")
