@@ -137,6 +137,8 @@ def generate_pool_html(items):
 <html lang="zh-CN">
 <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>游戏新闻 · 待发池</title>
+<script>
+function updateClock(){{var n=new Date;n=new Date(n.getTime()+8*3600000);var e=n.toISOString().slice(0,10).replace(/-/g,"/")+" "+n.toTimeString().slice(0,8);document.getElementById("bjtime").textContent="🕐 北京时间 "+e}}setInterval(updateClock,1e3);</script>
 <style>
 * {{ margin:0; padding:0; box-sizing:border-box; }}
 body {{ font-family:-apple-system,"PingFang SC",sans-serif; background:#f5f5f5; padding:20px; }}
@@ -155,7 +157,7 @@ a {{ color:#333; text-decoration:none; }} a:hover {{ color:#1a73e8; text-decorat
 .next-update {{ background:#e8f0fe; border-radius:8px; padding:10px 16px; margin-bottom:16px; text-align:center; font-size:14px; color:#1a73e8; }}
 </style></head>
 <body>
-<div class="header"><h1>📦 游戏新闻 · 待发池</h1><p>共 {len(items)} 条 · 更新于 {now_str}</p></div>
+<div class="header"><h1>📦 游戏新闻 · 待发池</h1><p id="bjtime">🕐 北京时间 加载中...</p><p>共 {len(items)} 条 · 更新于 {now_str}</p></div>
 <div class="next-update">⏰ 下次更新：{next_str} · 每日 8:00/20:00 生成长图后清空</div>
 <table>
 <tr><th class="num">#</th><th>新闻标题</th><th>来源</th><th>入库时间</th></tr>
