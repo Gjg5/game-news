@@ -1,0 +1,41 @@
+name: 实时新闻监控
+
+on:
+  schedule:
+    # 每30分钟检查一次，北京时间 6:00-23:00 活跃时段
+    - cron: '*/30 6-15 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  monitor:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 检出代码
+        uses: actions/checkout@v4
+
+      - name: 设置 Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: 安装依赖
+        run: |
+          pip install feedparser requests
+
+      - name: 扫描新闻并邮件通知
+        env:
+          QQMAIL_PASSWORD: ${{ secrets.QQMAIL_PASSWORD }}
+        run: |
+          python realtime_monitor.py
+
+      - name: 更新历史记录
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add news_history.json -f
+          git diff --cached --quiet || git commit -m "chore: update news history [skip ci]"
+          git push
