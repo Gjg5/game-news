@@ -47,7 +47,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add news_history.json history.html news_pool.json outputs/ -f
+          git add news_history.json history.html news_pool.json pool.html outputs/ -f
           git diff --cached --quiet || git commit -m "chore: 更新新闻历史库和池 [skip ci]"
           git push
 
