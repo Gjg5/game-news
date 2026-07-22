@@ -37,18 +37,18 @@ jobs:
         run: |
           pip install -r requirements.txt
 
-      - name: 生成游戏新闻长图并发送邮件
+      - name: 从新闻池生成长图并发送
         env:
           QQMAIL_PASSWORD: ${{ secrets.QQMAIL_PASSWORD }}
         run: |
           python game_news_generator.py
 
-      - name: 提交更新（历史记录到仓库）
+      - name: 提交更新（历史库 + 新闻池）
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add news_history.json history.html outputs/ -f
-          git diff --cached --quiet || git commit -m "chore: 更新新闻历史记录 [skip ci]"
+          git add news_history.json history.html news_pool.json outputs/ -f
+          git diff --cached --quiet || git commit -m "chore: 更新新闻历史库和池 [skip ci]"
           git push
 
       - name: 上传产出物到 Pages

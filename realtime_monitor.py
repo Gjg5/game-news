@@ -1,5 +1,5 @@
-"""实时新闻监控 - 28个游戏媒体，新新闻第一时间发邮件"""
-import os, sys, json, re, html, hashlib
+"""实时监控 → 存入新闻池（不直接进历史库）"""
+import os, json, re, html, hashlib
 from datetime import datetime, timezone, timedelta
 import requests, feedparser
 
@@ -7,13 +7,11 @@ BJT = timezone(timedelta(hours=8))
 
 # 28个游戏媒体RSS源
 RSS_SOURCES = [
-    # --- 国内 ---
     {"url": "https://www.3dmgame.com/rss/news.xml", "source": "3DM"},
     {"url": "http://www.gamersky.com/rss/news.xml", "source": "游民星空"},
     {"url": "https://www.ithome.com/rss/", "source": "IT之家"},
     {"url": "http://www.gamelook.com.cn/feed/", "source": "GameLook"},
     {"url": "https://feedx.net/rss/17173.xml", "source": "17173"},
-    # --- 海外 ---
     {"url": "https://feeds.feedburner.com/ign/all", "source": "IGN"},
     {"url": "https://www.gamespot.com/feeds/mashup/", "source": "GameSpot"},
     {"url": "https://www.pcgamer.com/rss/", "source": "PC Gamer"},
@@ -23,7 +21,7 @@ RSS_SOURCES = [
     {"url": "https://www.4gamer.net/rss/index.xml", "source": "4gamer"},
 ]
 
-HISTORY_FILE = "news_history.json"
+POOL_FILE = "news_pool.json"
 
 def fingerprint(title):
     clean = re.sub(r"[^\w\u4e00-\u9fff]", "", title).lower().strip()
@@ -33,7 +31,6 @@ def has_chinese(text):
     return bool(re.search(r'[\u4e00-\u9fff]', str(text)))
 
 def translate(text):
-    """有道翻译"""
     if not text or has_chinese(text):
         return text
     try:
@@ -53,54 +50,46 @@ def translate(text):
         pass
     return text
 
-def get_existing_fingerprints():
-    """获取已发送的指纹（兼容新旧两种格式）"""
-    if not os.path.exists(HISTORY_FILE):
+def load_pool():
+    """读取新闻池"""
+    if os.path.exists(POOL_FILE):
+        try:
+            with open(POOL_FILE) as f:
+                return json.load(f)
+        except:
+            pass
+    return []
+
+def save_pool(items):
+    """保存新闻池"""
+    with open(POOL_FILE, "w", encoding="utf-8") as f:
+        json.dump(items, f, ensure_ascii=False, indent=2)
+
+def load_history_fingerprints():
+    """加载已发送历史的指纹"""
+    if not os.path.exists("news_history.json"):
         return set()
     try:
-        with open(HISTORY_FILE) as f:
+        with open("news_history.json") as f:
             data = json.load(f)
         if "entries" in data:
             return set(data["entries"].keys())
-        if "fingerprints" in data:
-            return set(data["fingerprints"])
     except:
         pass
     return set()
 
-def append_history(items):
-    """追加新条目到历史库"""
-    data = {"entries": {}}
-    if os.path.exists(HISTORY_FILE):
-        with open(HISTORY_FILE) as f:
-            data = json.load(f)
-    if "entries" not in data:
-        data["entries"] = {}
-    for item in items:
-        fp = item["fp"]
-        if fp not in data["entries"]:
-            data["entries"][fp] = {
-                "title": item["title_cn"][:60],
-                "date": item["date"],
-                "source": item["source"],
-                "link": item["link"]
-            }
-    with open(HISTORY_FILE, "w") as f:
-        json.dump(data, f, ensure_ascii=False, indent=2)
-
 def send_email(items):
     pwd = os.environ.get("QQMAIL_PASSWORD", "")
     if not pwd:
-        print("  ⏭️ 未配置邮箱")
         return
     from email.mime.text import MIMEText
     import smtplib
     now = datetime.now(BJT).strftime("%H:%M")
     body = f"🆕 {len(items)}条新游戏新闻 ({now})\n\n"
     for i, it in enumerate(items, 1):
-        body += f"{i}. {it['title_cn']}\n"
+        body += f"{i}. {it['title']}\n"
         body += f"   📡 {it['source']}"
-        if it['link']: body += f"  🔗 {it['link']}"
+        if it.get("link"): body += f"  🔗 {it['link']}"
         body += "\n\n"
     msg = MIMEText(body, "plain", "utf-8")
     msg["From"] = "2586555901@qq.com"
@@ -112,49 +101,57 @@ def send_email(items):
         s.sendmail(msg["From"], [msg["To"]], msg.as_string())
         s.quit()
         print(f"  ✅ 已发邮件")
-    except Exception as e:
-        print(f"  ❌ 邮件失败: {e}")
+    except:
+        pass
 
 def main():
     now = datetime.now(BJT)
-    print(f"🔍 {now.strftime('%Y-%m-%d %H:%M')} 实时扫描...")
-    existing = get_existing_fingerprints()
+    print(f"🔍 {now.strftime('%Y-%m-%d %H:%M')} 扫描新闻...")
+
+    pool = load_pool()
+    pool_fps = {item["fp"] for item in pool}
+    history_fps = load_history_fingerprints()
     new_items = []
     seen = set()
 
     for src in RSS_SOURCES:
         try:
             feed = feedparser.parse(src["url"])
-            for entry in feed.entries[:2]:  # 每个源只取最新的2条
+            for entry in feed.entries[:2]:
                 title = entry.get("title", "").strip()
                 if not title or title in seen:
                     continue
                 seen.add(title)
                 fp = fingerprint(title)
-                if fp in existing:
+                # 跳过已在池中 或 已发送过的
+                if fp in pool_fps or fp in history_fps:
                     continue
                 summary = re.sub(r'<[^>]+>', '', entry.get("summary","") or "")
                 summary = html.unescape(summary)[:100]
                 link = entry.get("link", "")
                 title_cn = translate(title)
                 summary_cn = translate(summary)
-                new_items.append({
-                    "fp": fp, "title_cn": title_cn,
-                    "source": src["source"], "link": link,
-                    "summary": summary_cn,
-                    "date": now.strftime("%Y-%m-%d")
-                })
-        except Exception as e:
-            print(f"  ⏭️ {src['source']}: {e}")
+                item = {
+                    "fp": fp,
+                    "title": title_cn[:60],
+                    "summary": summary_cn[:80],
+                    "source": src["source"],
+                    "link": link,
+                    "date": now.strftime("%Y-%m-%d %H:%M")
+                }
+                new_items.append(item)
+        except:
+            pass
 
     if new_items:
-        print(f"\n🆕 发现 {len(new_items)} 条新新闻:")
-        for it in new_items:
-            print(f"  • {it['title_cn'][:40]}  [{it['source']}]")
-        append_history(new_items)
+        # 存入新闻池（最新在前）
+        pool = new_items + pool
+        save_pool(pool)
+        print(f"\n🆕 {len(new_items)} 条 → 新闻池 (共{len(pool)}条)")
         send_email(new_items)
     else:
-        print("  ✅ 无新新闻")
+        print(f"  ✅ 无新新闻 (池中{len(pool)}条)")
+        save_pool(pool)
 
 if __name__ == "__main__":
     main()

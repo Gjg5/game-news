@@ -589,59 +589,77 @@ def main():
     date_weekday = weekday_map[now_bj.weekday()]
 
     print(f"🕐 {date_str} {date_weekday} {edition}")
-    print("📡 正在抓取最新游戏新闻...")
+    print("📦 正在从新闻池读取...")
 
-    # 加载历史记录，过滤已发送过的新闻
-    history_path = "news_history.json" if os.environ.get("GITHUB_ACTIONS") else ".workbuddy/news_history.json"
-    history = NewsHistory(history_path)
-    before = history.count()
+    # 读取新闻池
+    pool_file = "news_pool.json"
+    if not os.path.exists(pool_file):
+        print("  ⏭️ 新闻池为空")
+        return
+    with open(pool_file, "r", encoding="utf-8") as f:
+        pool = json.load(f)
 
-    entries = fetch_news(history)
-    print(f"   获取到 {len(entries)} 条新新闻")
-
-    # 所有最终入选的新闻标题记录到历史
-    all_titles = []
-    for e in entries:
-        all_titles.append(e.get("title_raw", e["title"]))
-
-    if not entries:
-        print("  ⏭️ 没有新新闻，但仍更新历史页面")
-        history.generate_history_html("history.html")
+    if not pool:
+        print("  ⏭️ 新闻池为空")
         return
 
-    categorized = categorize_news(entries)
+    print(f"  📦 池中共 {len(pool)} 条新闻")
+
+    # 取最新最多20条
+    entries = pool[:20]
+    print(f"  📰 本次使用 {len(entries)} 条")
+
+    # 分类（从fetch_news移过来的分类逻辑）
+    categorized = categorize_news([
+        {"title": e["title"], "summary": e.get("summary", ""),
+         "source": e.get("source", ""), "link": e.get("link", "")}
+        for e in entries
+    ])
 
     # 组装 news_data
     category_order = ["🔥 重磅头条", "🎮 新游动态", "🏢 行业风云", "📡 技术与平台"]
     news_data = {"category_order": [], "categories": {}}
-
     for cat in category_order:
         items = categorized.get(cat, [])
         if items:
             news_data["category_order"].append(cat)
             news_data["categories"][cat] = [(item["title"][:30], item["summary"][:50]) for item in items]
 
-    # 统计来源
-    all_sources = list(dict.fromkeys(e["source"] for e in entries if e.get("source")))
+    if not news_data["categories"]:
+        print("  ⏭️ 无可用的新闻分类")
+        return
+
+    all_sources = list(dict.fromkeys(e.get("source", "") for e in entries))
     footer_sources = "、".join(all_sources[:10])
 
-    print(f"📊 分类统计: {', '.join(f'{k}:{len(v)}条' for k,v in news_data['categories'].items())}")
-    print("🎨 正在生成图片...")
+    print(f"📊 分类: {', '.join(f'{k}:{len(v)}条' for k,v in news_data['categories'].items())}")
+    print("🎨 生成图片...")
 
     filepath, root_path = generate_image(news_data, edition, date_str, date_weekday, footer_sources)
 
-    print("📧 正在发送邮件...")
+    print("📧 发送邮件...")
     send_email(filepath, edition, date_str)
 
-    # 记录已发送的新闻到历史（带标题、日期、来源、原文链接）
+    # 已用新闻 → 移入历史库
+    used_fps = {e.get("fp", "") for e in entries if e.get("fp")}
+    history_path = "news_history.json" if os.environ.get("GITHUB_ACTIONS") else ".workbuddy/news_history.json"
+    history = NewsHistory(history_path)
+
     date_short = now_bj.strftime("%Y-%m-%d")
     for e in entries:
-        raw_title = e.get("title_raw", e["title"])
+        title = e.get("title", "")
         source = e.get("source", edition)
         link = e.get("link", "")
-        history.add(raw_title, date_short, source, link)
+        history.add(title, date_short, source, link)
     history.save()
     history.generate_history_html("history.html")
+
+    # 从新闻池中删除已用的
+    if used_fps:
+        remaining = [item for item in pool if item.get("fp") not in used_fps]
+        with open(pool_file, "w", encoding="utf-8") as f:
+            json.dump(remaining, f, ensure_ascii=False, indent=2)
+        print(f"  🗑️ 从新闻池移除 {len(entries)} 条，剩余 {len(remaining)} 条")
 
     # 生成 index.html
     html_content = f"""<!DOCTYPE html>
