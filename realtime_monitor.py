@@ -61,8 +61,18 @@ def is_gaming(text):
     return False
 
 def translate(text):
+    """翻译英文到中文，多方案兜底"""
     if not text or has_chinese(text):
         return text
+    # 方案1：deep-translator Google（云端Ubuntu通常可用）
+    try:
+        from deep_translator import GoogleTranslator
+        t = GoogleTranslator(source="en", target="zh-CN").translate(text[:500])
+        if t and any('\u4e00' <= c <= '\u9fff' for c in t):
+            return t
+    except:
+        pass
+    # 方案2：有道API（国内云备用）
     try:
         import random
         salt = str(random.randint(10000, 99999))
@@ -79,7 +89,7 @@ def translate(text):
                 return t
     except:
         pass
-    return text
+    return text  # 都失败就保留原文
 
 def load_pool():
     """读取新闻池"""
