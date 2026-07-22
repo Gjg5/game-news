@@ -30,6 +30,26 @@ def fingerprint(title):
 def has_chinese(text):
     return bool(re.search(r'[\u4e00-\u9fff]', str(text)))
 
+# 非游戏关键词过滤
+NON_GAME_KW = ["手机","芯片","处理器","半导体","固态","硬盘","汽车","新能源","显示器",
+               "笔记本","平板","耳机","音箱","充电","空调","冰箱","洗衣机","电视","投影",
+               "路由器","操作系统","AI对话","大模型","评测","开箱","红包","优惠"]
+
+GAME_KW = ["游戏","gam","play","电竞","PS5","Xbox","Switch","Steam","任天堂","索尼","微软",
+           "腾讯","网易","米哈游","更新","版本","赛季","联动","上线","发售","测试",
+           "收购","裁员","投资","主机","显卡","GPU","光追","虚幻","手游","端游",
+           "赛事","战队","选手","IGN","评分","预告","皮肤","DLC","3A","大作"]
+
+def is_gaming(text):
+    t = (text or "").lower()
+    for kw in NON_GAME_KW:
+        if kw.lower() in t:
+            return False
+    for kw in GAME_KW:
+        if kw.lower() in t:
+            return True
+    return False
+
 def translate(text):
     if not text or has_chinese(text):
         return text
@@ -125,6 +145,9 @@ def main():
                 fp = fingerprint(title)
                 # 跳过已在池中 或 已发送过的
                 if fp in pool_fps or fp in history_fps:
+                    continue
+                # 非游戏内容过滤
+                if not is_gaming(title):
                     continue
                 summary = re.sub(r'<[^>]+>', '', entry.get("summary","") or "")
                 summary = html.unescape(summary)[:100]
