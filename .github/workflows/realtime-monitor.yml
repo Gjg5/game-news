@@ -2,7 +2,8 @@ name: 实时新闻监控
 
 on:
   schedule:
-    - cron: '*/30 6-15 * * *'
+    # 每30分钟检查一次，北京时间 8:00-23:00
+    - cron: '*/30 0-15 * * *'
   workflow_dispatch:
 
 permissions:
