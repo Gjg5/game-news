@@ -15,3 +15,7 @@ Thumbs.db
 .vscode/
 *.swp
 *.swo
+
+# 本地文件（不上传到GitHub）
+.workbuddy/
+send_email.py

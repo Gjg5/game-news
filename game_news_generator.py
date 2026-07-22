@@ -3,7 +3,7 @@
 游戏新闻自动生成器 - 全自动版本
 从多个游戏媒体RSS抓取最新新闻，生成公众号竖版长图
 """
-import os, sys, json, re, html, smtplib
+import os, sys, json, re, html, smtplib, hashlib
 from datetime import datetime, timezone, timedelta
 from collections import defaultdict
 from email.mime.text import MIMEText
@@ -95,6 +95,55 @@ GAME_REQUIRED_KEYWORDS = [
 _translation_cache = {}
 
 
+class NewsHistory:
+    """已发送新闻历史记录，用于去重"""
+
+    def __init__(self, filepath="news_history.json"):
+        self.filepath = filepath
+        self.seen = set()
+        self._load()
+
+    def _fingerprint(self, title):
+        """对标题生成唯一指纹（归一化后MD5）"""
+        clean = re.sub(r"[^\w\u4e00-\u9fff]", "", title).lower().strip()
+        return hashlib.md5(clean.encode("utf-8")).hexdigest()
+
+    def _load(self):
+        """加载历史记录"""
+        if os.path.exists(self.filepath):
+            try:
+                with open(self.filepath, "r", encoding="utf-8") as f:
+                    data = json.load(f)
+                    self.seen = set(data.get("fingerprints", []))
+                print(f"  📚 已加载 {len(self.seen)} 条历史新闻指纹")
+            except Exception as e:
+                print(f"  ⚠️ 历史记录加载失败: {e}")
+                self.seen = set()
+
+    def is_duplicate(self, title):
+        """检查是否已发过"""
+        return self._fingerprint(title) in self.seen
+
+    def add(self, title):
+        """标记为已发送"""
+        self.seen.add(self._fingerprint(title))
+
+    def add_batch(self, titles):
+        """批量标记"""
+        for t in titles:
+            self.add(t)
+
+    def save(self):
+        """保存到文件"""
+        os.makedirs(os.path.dirname(self.filepath) or ".", exist_ok=True)
+        with open(self.filepath, "w", encoding="utf-8") as f:
+            json.dump({"fingerprints": sorted(list(self.seen))}, f, ensure_ascii=False, indent=2)
+        print(f"  💾 已保存 {len(self.seen)} 条新闻指纹到 {self.filepath}")
+
+    def count(self):
+        return len(self.seen)
+
+
 def translate_to_chinese(text):
     """将英文文本翻译成中文，带缓存"""
     if not text or has_chinese(text):
@@ -155,10 +204,11 @@ def has_chinese(text):
     return bool(re.search(r'[\u4e00-\u9fff]', text))
 
 
-def fetch_news():
-    """从RSS源获取最新游戏新闻，英文自动翻译"""
+def fetch_news(history=None):
+    """从RSS源获取最新游戏新闻，英文自动翻译，跳过已发送的重复内容"""
     all_entries = []
     seen_titles = set()
+    skip_count = 0
 
     for src in RSS_SOURCES:
         try:
@@ -169,17 +219,22 @@ def fetch_news():
                     continue
                 seen_titles.add(title)
 
-                summary = entry.get("summary", entry.get("description", "")).strip()
-                summary = re.sub(r'<[^>]+>', '', summary)
-                summary = html.unescape(summary)[:120]
-
                 # 非游戏内容过滤
-                if not is_gaming_related(title, summary):
+                if not is_gaming_related(title, ""):
                     continue
 
                 # IT之家等综合站需要严格过滤
                 if src.get("filter_game") and not has_chinese(title):
                     continue
+
+                # 去重检查
+                if history and history.is_duplicate(title):
+                    skip_count += 1
+                    continue
+
+                summary = entry.get("summary", entry.get("description", "")).strip()
+                summary = re.sub(r'<[^>]+>', '', summary)
+                summary = html.unescape(summary)[:120]
 
                 # 英文标题和摘要翻译成中文
                 title_cn = translate_to_chinese(title)
@@ -197,11 +252,14 @@ def fetch_news():
                     "source": src["source"],
                     "time": pub_time,
                     "link": entry.get("link", ""),
-                    "has_chinese": has_chinese(title_cn),
+                    "title_raw": title,  # 保存原始标题用于去重
                 })
         except Exception as e:
             print(f"  [跳过] {src['source']}: {e}")
             continue
+
+    if skip_count > 0:
+        print(f"  🔄 跳过 {skip_count} 条已发送过的新闻")
 
     # 按时间排序
     all_entries.sort(key=lambda x: x["time"] or datetime.min.replace(tzinfo=timezone.utc), reverse=True)
@@ -454,8 +512,22 @@ def main():
     print(f"🕐 {date_str} {date_weekday} {edition}")
     print("📡 正在抓取最新游戏新闻...")
 
-    entries = fetch_news()
-    print(f"   获取到 {len(entries)} 条新闻")
+    # 加载历史记录，过滤已发送过的新闻
+    history_path = "news_history.json" if os.environ.get("GITHUB_ACTIONS") else ".workbuddy/news_history.json"
+    history = NewsHistory(history_path)
+    before = history.count()
+
+    entries = fetch_news(history)
+    print(f"   获取到 {len(entries)} 条新新闻")
+
+    # 所有最终入选的新闻标题记录到历史
+    all_titles = []
+    for e in entries:
+        all_titles.append(e.get("title_raw", e["title"]))
+
+    if not entries:
+        print("  ⏭️ 没有新新闻，跳过本次生成")
+        return
 
     categorized = categorize_news(entries)
 
@@ -480,6 +552,10 @@ def main():
 
     print("📧 正在发送邮件...")
     send_email(filepath, edition, date_str)
+
+    # 记录已发送的新闻到历史
+    history.add_batch(all_titles)
+    history.save()
 
     # 生成 index.html
     html_content = f"""<!DOCTYPE html>
