@@ -305,13 +305,18 @@ def generate_image(news_data, edition, date_str, date_weekday, footer_sources):
     fb = draw.textbbox((0, 0), ft, font=fonts["footer"])
     draw.text(((WIDTH - (fb[2] - fb[0])) // 2, y), ft, fill=DATE_COLOR, font=fonts["footer"])
 
+    # 同时也复制一份到根目录（供GitHub Pages部署使用）
     now_bj = datetime.now(BJT)
     filename = f"game_news_{now_bj.strftime('%Y%m%d_%H%M')}.png"
     filepath = os.path.join(OUTPUT_DIR, filename)
     img.save(filepath, "PNG")
+    root_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), filename)
+    import shutil
+    shutil.copy2(filepath, root_path)
     print(f"✅ 图片已保存: {filepath}")
+    print(f"   根目录副本: {root_path}")
     print(f"   尺寸: {WIDTH}x{total_height}")
-    return filepath
+    return filepath, root_path
 
 
 def main():
@@ -347,7 +352,7 @@ def main():
     print(f"📊 分类统计: {', '.join(f'{k}:{len(v)}条' for k,v in news_data['categories'].items())}")
     print("🎨 正在生成图片...")
 
-    filepath = generate_image(news_data, edition, date_str, date_weekday, footer_sources)
+    filepath, root_path = generate_image(news_data, edition, date_str, date_weekday, footer_sources)
 
     # 生成 index.html
     html_content = f"""<!DOCTYPE html>
@@ -364,7 +369,7 @@ img {{ width:100%; border-radius:8px; box-shadow:0 2px 12px rgba(0,0,0,0.1); }}
 </style></head>
 <body>
 <div class="header"><h1>🎮 游戏{edition}</h1><p>{date_str} · {date_weekday}</p></div>
-<img src="outputs/{os.path.basename(filepath)}" alt="游戏新闻">
+<img src="{os.path.basename(filepath)}" alt="游戏新闻">
 <div class="footer">资讯来源：{footer_sources}<br>GitHub Actions 自动生成</div>
 </body></html>"""
     with open("index.html", "w", encoding="utf-8") as f:
