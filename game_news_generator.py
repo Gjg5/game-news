@@ -46,18 +46,11 @@ os.makedirs(OUTPUT_DIR, exist_ok=True)
 
 # === RSS 新闻源（国内 + 海外英文源，英文会自动翻译成中文）===
 RSS_SOURCES = [
-    # 国内游戏媒体
+    # 纯中文游戏媒体（云端无翻译能力，只保留中文源）
     {"url": "https://www.3dmgame.com/rss/news.xml", "source": "3DM"},
     {"url": "http://www.gamersky.com/rss/news.xml", "source": "游民星空"},
     {"url": "https://www.ithome.com/rss/", "source": "IT之家", "filter_game": True},
     {"url": "http://www.gamelook.com.cn/feed/", "source": "GameLook"},
-    # 海外游戏媒体（英文标题会被自动翻译）
-    {"url": "https://feeds.feedburner.com/ign/all", "source": "IGN"},
-    {"url": "https://www.gamespot.com/feeds/mashup/", "source": "GameSpot"},
-    {"url": "https://www.pcgamer.com/rss/", "source": "PC Gamer"},
-    {"url": "https://www.gematsu.com/feed", "source": "Gematsu"},
-    {"url": "https://www.eurogamer.net/feed", "source": "Eurogamer"},
-    {"url": "https://www.vg247.com/feed", "source": "VG247"},
 ]
 
 # 非游戏关键词（含这些词的标题直接排除）
