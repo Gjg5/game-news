@@ -1,5 +1,85 @@
 [
   {
+    "fp": "9adf4cee851b04b440cd1d4afb6da428",
+    "title": "PC平台《黑湖》恐怖游戏正式公布",
+    "summary": "第一人称恐怖游戏是我们最喜欢的类型之一，因为它们把恐怖元素直接带到眼前。",
+    "source": "IGN",
+    "link": "https://www.ign.com/articles/black-lake-horror-game-announced-for-pc",
+    "date": "2026-07-22 22:56"
+  },
+  {
+    "fp": "283e734da2d0234ef444408630bcb181",
+    "title": "《暮色之血》网络测试注册困难？试试这个快速解决方法",
+    "summary": "首先声明，我并非在评判你。我们都曾有过那种迫不及待想要参与其中的激动心情。",
+    "source": "GameSpot",
+    "link": "https://www.gamespot.com/articles/if-youre-struggling-to-sign-up-for-the-duskbloods-network-test-try-this-quick-fix/",
+    "date": "2026-07-22 22:56"
+  },
+  {
+    "fp": "b94646acc4889bebb0ec4946be779441",
+    "title": "2026年6月Xbox美国销量“翻倍”，PS5与Switch 2下滑",
+    "summary": "Circana（前身为NPD）发布了美国视频游戏行业最新月度销售报告。",
+    "source": "GameSpot",
+    "link": "https://www.gamespot.com/articles/xbox-sales-more-than-doubled-in-june-2026-in-the-us-while-ps5-and-switch-2-dropped/",
+    "date": "2026-07-22 22:56"
+  },
+  {
+    "fp": "29a2b049d508897d7726b990e1c167b6",
+    "title": "新方法教AI将2D设计转为3D，我担心机器人将借此学会自主建造",
+    "summary": "不过，确实很酷。",
+    "source": "PC Gamer",
+    "link": "https://www.pcgamer.com/software/ai/new-method-teaches-ai-to-make-2d-designs-3d-and-now-im-afraid-this-will-be-how-the-robots-learn-to-build-themselves-without-us/",
+    "date": "2026-07-22 22:56"
+  },
+  {
+    "fp": "fc4946a9a7613a7cc398aeff0d00ffc7",
+    "title": "NBA 2K27 宣布登陆 PS5、Xbox Series、Switch 2 及 PC 平台",
+    "summary": "发行商2K与开发商Visual Concepts宣布《NBA 2K27》将登陆PlayStation 5、Xbox Series平台。",
+    "source": "Gematsu",
+    "link": "https://www.gematsu.com/2026/07/nba-2k27-announced-for-ps5-xbox-series-switch-2-and-pc",
+    "date": "2026-07-22 22:56"
+  },
+  {
+    "fp": "7708dccd484b9cc579cb7070240d5806",
+    "title": "《午夜以南》荣获年度游戏大奖",
+    "summary": "尽管Compulsion Games历经波折，《午夜之南》仍斩获殊荣",
+    "source": "Insider Gaming",
+    "link": "https://insider-gaming.com/south-of-midnight-has-won-a-game-of-the-year-award/",
+    "date": "2026-07-22 22:56"
+  },
+  {
+    "fp": "509fc4feff254d9208a8662246b082c6",
+    "title": "XBOX工程副总裁上任三月后宣布离职",
+    "summary": "XBOX工程副总裁兼CEO技术顾问上任3个月后宣布离职",
+    "source": "Insider Gaming",
+    "link": "https://insider-gaming.com/xbox-vp-of-engineering-announces-exit-after-3-months/",
+    "date": "2026-07-22 22:56"
+  },
+  {
+    "fp": "8d86311009c68a31700cf370ca77c3d5",
+    "title": "2026年6月美国游戏支出下降21%",
+    "summary": "最新数据显示，2026年6月美国视频游戏支出同比下降21%",
+    "source": "Insider Gaming",
+    "link": "https://insider-gaming.com/us-video-game-spending-fell-21-in-june-2026/",
+    "date": "2026-07-22 22:56"
+  },
+  {
+    "fp": "ea2e67c6930d62985354120c673e3f83",
+    "title": "《马拉松》PVE模式让玩家数激增三倍",
+    "summary": "《马拉松》新PVE模式“破穹者”上线，Steam玩家数激增",
+    "source": "Insider Gaming",
+    "link": "https://insider-gaming.com/marathon-pve-mode-triple-games-player-count/",
+    "date": "2026-07-22 22:56"
+  },
+  {
+    "fp": "2159af5c688b359bb8d139bca26a820c",
+    "title": "「Alien Archeologist（エイリアン・アーキオロジスト）」，10月12日にSteamでリリース。火星を舞台",
+    "summary": "BlackLanternCollectiveは2026年7月22日，「AlienArcheologist（エイリアン・アーキオロジスト）」を正式発表した。10月",
+    "source": "4gamer",
+    "link": "https://www.4gamer.net/games/026/G102695/20260722057/",
+    "date": "2026-07-22 22:56"
+  },
+  {
     "fp": "4bdf2467d084d92353e72e5123e157f6",
     "title": "Count Binface 做出了一项每位世嘉粉丝都能支持的竞选承诺",
     "summary": "竞选季正在升温，到现在，你可能已经习惯了政客们夸下海口。",
@@ -317,14 +397,6 @@
     "summary": "",
     "source": "IT之家",
     "link": "https://www.ithome.com/0/979/860.htm",
-    "date": "2026-07-22"
-  },
-  {
-    "fp": "4226076a7109f735069c0f30f3aa21c4",
-    "title": "韩版TapTap引入微信小游戏，波克城市抢先机",
-    "summary": "",
-    "source": "GameLook",
-    "link": "http://www.gamelook.com.cn/2026/07/598025/",
     "date": "2026-07-22"
   }
 ]
