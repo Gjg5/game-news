@@ -195,16 +195,40 @@ tr:hover td {{ background:#fff5f5; }}
 
 
 def translate_to_chinese(text):
-    """将英文文本翻译成中文（直接请求，不依赖第三方库），带缓存"""
+    """翻译英文到中文，DeepSeek优先 + 多方案兜底，带缓存"""
     if not text or has_chinese(text):
         return text
     if text in _translation_cache:
         return _translation_cache[text]
 
-    # 1. 有道翻译 Web API（免费，国内网络好）
+    # 1. DeepSeek API（高质量翻译）
+    ds_key = os.environ.get("DEEPSEEK_API_KEY", "")
+    if ds_key:
+        try:
+            import requests as _r
+            resp = _r.post("https://api.deepseek.com/v1/chat/completions",
+                json={
+                    "model": "deepseek-chat",
+                    "messages": [
+                        {"role": "system", "content": "You are a translator. Translate English game news titles to concise Chinese. Only output the translation."},
+                        {"role": "user", "content": f"Translate to Chinese: {text[:500]}"}
+                    ],
+                    "temperature": 0.1, "max_tokens": 200
+                },
+                headers={"Authorization": f"Bearer {ds_key}", "Content-Type": "application/json"},
+                timeout=10)
+            j = resp.json()
+            t = j.get("choices", [{}])[0].get("message", {}).get("content", "")
+            if t and any('\u4e00' <= c <= '\u9fff' for c in t):
+                _translation_cache[text] = t.strip()
+                return t.strip()
+        except:
+            pass
+
+    # 2. 有道翻译（备用）
     try:
         import hashlib, urllib.request, urllib.parse, random
-        app_key = "0e6e7d1a4b7f3c2d"  # 公共测试key
+        app_key = "0e6e7d1a4b7f3c2d"
         salt = str(random.randint(10000, 99999))
         sign_str = app_key + text[:500] + salt + "yG7dH2kL9pQ4wR8x"
         sign = hashlib.md5(sign_str.encode()).hexdigest()
@@ -222,20 +246,18 @@ def translate_to_chinese(text):
             if any('\u4e00' <= c <= '\u9fff' for c in t):
                 _translation_cache[text] = t
                 return t
-    except Exception:
+    except:
         pass
 
-    # 2. Google翻译（备用）
-    for attempt in range(2):
-        try:
-            from deep_translator import GoogleTranslator
-            translated = GoogleTranslator(source="en", target="zh-CN").translate(text[:500])
-            if translated and any('\u4e00' <= c <= '\u9fff' for c in translated):
-                _translation_cache[text] = translated
-                return translated
-        except Exception:
-            import time as _t
-            _t.sleep(1)
+    # 3. Google翻译（最后兜底）
+    try:
+        from deep_translator import GoogleTranslator
+        translated = GoogleTranslator(source="en", target="zh-CN").translate(text[:500])
+        if translated and any('\u4e00' <= c <= '\u9fff' for c in translated):
+            _translation_cache[text] = translated
+            return translated
+    except:
+        pass
 
     return text  # 翻译失败则保留原文
 

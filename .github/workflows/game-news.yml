@@ -39,6 +39,7 @@ jobs:
       - name: 从新闻池生成长图并发送
         env:
           QQMAIL_PASSWORD: ${{ secrets.QQMAIL_PASSWORD }}
+          DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
         run: |
           python game_news_generator.py
 

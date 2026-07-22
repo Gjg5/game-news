@@ -61,10 +61,31 @@ def is_gaming(text):
     return False
 
 def translate(text):
-    """翻译英文到中文，多方案兜底"""
+    """翻译英文到中文，DeepSeek优先 + 多方案兜底"""
     if not text or has_chinese(text):
         return text
-    # 方案1：deep-translator Google（云端Ubuntu通常可用）
+    # 方案1：DeepSeek API（高质量翻译）
+    ds_key = os.environ.get("DEEPSEEK_API_KEY", "")
+    if ds_key:
+        try:
+            resp = requests.post("https://api.deepseek.com/v1/chat/completions",
+                json={
+                    "model": "deepseek-chat",
+                    "messages": [
+                        {"role": "system", "content": "You are a translator. Translate English game news titles to concise Chinese. Only output the translation."},
+                        {"role": "user", "content": f"Translate to Chinese: {text[:500]}"}
+                    ],
+                    "temperature": 0.1, "max_tokens": 200
+                },
+                headers={"Authorization": f"Bearer {ds_key}", "Content-Type": "application/json"},
+                timeout=10)
+            j = resp.json()
+            t = j.get("choices", [{}])[0].get("message", {}).get("content", "")
+            if t and any('\u4e00' <= c <= '\u9fff' for c in t):
+                return t.strip()
+        except:
+            pass
+    # 方案2：deep-translator Google（备用）
     try:
         from deep_translator import GoogleTranslator
         t = GoogleTranslator(source="en", target="zh-CN").translate(text[:500])
@@ -72,7 +93,7 @@ def translate(text):
             return t
     except:
         pass
-    # 方案2：有道API（国内云备用）
+    # 方案3：有道API（最后兜底）
     try:
         import random
         salt = str(random.randint(10000, 99999))

@@ -35,6 +35,8 @@ jobs:
           pip install feedparser requests
 
       - name: 扫描新新闻 + 更新pool.html
+        env:
+          DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
         run: |
           python realtime_monitor.py
 
