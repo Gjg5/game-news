@@ -100,23 +100,29 @@ def generate_pool_html(items):
     """生成新闻池展示页"""
     now = datetime.now(BJT)
 
-    # 计算下次更新时间（BJT 14:00-23:30，每30分钟）
+    # 计算下次更新时间（BJT 8:00-23:30，每30分钟）
     bjt_hour, bjt_min = now.hour, now.minute
     next_h, next_m = bjt_hour, bjt_min
-    if bjt_hour < 14:
-        next_h, next_m = 14, 0
+    if bjt_hour < 8:
+        next_h, next_m = 8, 0
     elif bjt_hour >= 23 and bjt_min >= 30:
-        next_h, next_m = 14, 0  # 明天
+        next_h, next_m = 8, 0  # 明天
     else:
         # 找下一个30分钟槽
         slot = ((bjt_hour * 60 + bjt_min) // 30 + 1) * 30
         next_h, next_m = slot // 60, slot % 60
         if next_h >= 24 or (next_h == 24 and next_m > 0):
-            next_h, next_m = 14, 0
+            next_h, next_m = 8, 0
         elif next_h >= 23 and next_m > 30:
-            next_h, next_m = 14, 0
+            next_h, next_m = 8, 0
 
-    next_str = f"明天14:00" if next_h == 14 and next_m == 0 and bjt_hour >= 14 else f"{next_h:02d}:{next_m:02d}"
+    # 区分"今天"还是"明天"
+    if bjt_hour < 8:
+        next_str = f"今天 {next_h:02d}:{next_m:02d}"
+    elif next_h == 8 and next_m == 0 and bjt_hour >= 8:
+        next_str = f"明天 {next_h:02d}:{next_m:02d}"
+    else:
+        next_str = f"今天 {next_h:02d}:{next_m:02d}"
     now_str = now.strftime("%m/%d %H:%M")
     rows = ""
     for i, item in enumerate(items, 1):
@@ -154,7 +160,7 @@ a {{ color:#333; text-decoration:none; }} a:hover {{ color:#1a73e8; text-decorat
 <table>
 <tr><th class="num">#</th><th>新闻标题</th><th>来源</th><th>入库时间</th></tr>
 {rows}</table>
-<div class="footer">GitHub Actions 实时监控 · 活跃时段 14:00-23:30 每30分钟</div>
+<div class="footer">GitHub Actions 实时监控 · 活跃时段 8:00-23:30 每30分钟</div>
 </body></html>"""
     with open("pool.html", "w", encoding="utf-8") as f:
         f.write(html)
