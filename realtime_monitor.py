@@ -68,8 +68,9 @@ def translate(text):
         salt = str(random.randint(10000, 99999))
         raw = text[:500]
         sign = hashlib.md5(("0e6e7d1a4b7f3c2d" + raw + salt + "yG7dH2kL9pQ4wR8x").encode()).hexdigest()
-        data = f"q={requests.utils.quote(raw)}&from=EN&to=zh-CHS&appKey=0e6e7d1a4b7f3c2d&salt={salt}&sign={sign}"
-        resp = requests.post("https://openapi.youdao.com/api", data=data,
+        resp = requests.post("https://openapi.youdao.com/api",
+            data={"q": raw, "from": "EN", "to": "zh-CHS",
+                  "appKey": "0e6e7d1a4b7f3c2d", "salt": salt, "sign": sign})
             headers={"Content-Type": "application/x-www-form-urlencoded"}, timeout=5)
         j = resp.json()
         if j.get("errorCode") == "0" and j.get("translation"):
