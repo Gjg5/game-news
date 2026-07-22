@@ -34,6 +34,9 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
+          # 先拉取远程最新，避免与每日生成工作流并发冲突
+          git pull --rebase origin main || git pull --rebase --strategy=ours origin main
           git add news_pool.json pool.html -f
           git diff --cached --quiet || git commit -m "chore: update news pool [skip ci]"
-          git push
+          # 推送失败重试一次
+          git push || git pull --rebase origin main && git push

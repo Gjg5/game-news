@@ -47,9 +47,12 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
+          # 先拉取远程最新，避免与监控工作流并发冲突
+          git pull --rebase origin main || git pull --rebase --strategy=ours origin main
           git add news_history.json history.html news_pool.json pool.html outputs/ -f
           git diff --cached --quiet || git commit -m "chore: 更新新闻历史库和池 [skip ci]"
-          git push
+          # 推送失败重试一次（应对并发场景）
+          git push || git pull --rebase origin main && git push
 
       - name: 上传产出物到 Pages
         uses: actions/upload-pages-artifact@v3
