@@ -196,37 +196,35 @@ tr:hover td {{ background:#fff5f5; }}
 
 
 def translate_to_chinese(text):
-    """将英文文本翻译成中文，带缓存和重试"""
+    """将英文文本翻译成中文，优先用有道翻译（国内网络友好），带缓存"""
     if not text or has_chinese(text):
         return text
     if text in _translation_cache:
         return _translation_cache[text]
 
-    # 重试机制
-    for attempt in range(3):
+    # 1. 有道翻译（国内网络好）
+    for attempt in range(2):
+        try:
+            from deep_translator import YoudaoTranslator
+            translated = YoudaoTranslator().translate(text[:500])
+            if translated and any('\u4e00' <= c <= '\u9fff' for c in translated):
+                _translation_cache[text] = translated
+                return translated
+        except Exception:
+            import time as _t
+            _t.sleep(1)
+
+    # 2. Google翻译（备用）
+    for attempt in range(2):
         try:
             from deep_translator import GoogleTranslator
             translated = GoogleTranslator(source="en", target="zh-CN").translate(text[:500])
             if translated and any('\u4e00' <= c <= '\u9fff' for c in translated):
                 _translation_cache[text] = translated
                 return translated
-        except Exception as e:
-            if attempt < 2:
-                import time as _t
-                _t.sleep(2 ** attempt)  # 1s, 2s, 4s 退避
-            else:
-                print(f"  ⚠️ 翻译失败（已重试3次）: {text[:30]}")
-
-    # 兜底：尝试用translators库
-    try:
-        from translate import Translator
-        translator = Translator(from_lang="en", to_lang="zh")
-        translated = translator.translate(text[:500])
-        if translated and any('\u4e00' <= c <= '\u9fff' for c in translated):
-            _translation_cache[text] = translated
-            return translated
-    except Exception:
-        pass
+        except Exception:
+            import time as _t
+            _t.sleep(2)
 
     return text  # 翻译失败则保留原文
 
