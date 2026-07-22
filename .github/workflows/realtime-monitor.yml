@@ -42,18 +42,20 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          # 只在文件真的有变化时才提交
+          # 只在文件有变化时才提交
           if git status --porcelain news_pool.json pool.html | grep -q .; then
             git add news_pool.json pool.html
             git commit -m "chore: update news pool [skip ci]"
-            # 推送：失败时拉取再试
             git push || (git pull --rebase origin main && git push)
           else
             echo "无变化，跳过提交"
           fi
 
+      - name: 上传产出物到 Pages
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: '.'
+
       - name: 部署到 GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
-        with:
-          artifact_name: github-pages
