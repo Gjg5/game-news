@@ -164,12 +164,47 @@ def generate_pool_html(items):
         title_cell = f'<a href="{link}" target="_blank">{title}</a>' if link else title
         rows += f'<tr><td class="num">{i}</td><td>{title_cell}</td><td class="src">{source}</td><td class="date">{date}</td></tr>\n'
 
+    js_code = """
+function pad(s,n){s=String(s);return s.length>=n?s:(new Array(n-s.length+1)).join('0')+s}
+function nextUpdate(){
+  var d=new Date;
+  var bj=new Date(d.getTime()+(d.getTimezoneOffset()+480)*60000);
+  var h=bj.getHours(),m=bj.getMinutes();
+  var nextMins;
+  if(h<8){nextMins=8*60}
+  else if(h>=23 && m>=30){nextMins=(24+8)*60}
+  else{
+    var cur=h*60+m;
+    var nextSlot=Math.floor(cur/30)*30+30;
+    if(nextSlot>23*60+30){nextSlot=(24+8)*60}
+    nextMins=nextSlot;
+  }
+  var target=new Date(bj);
+  target.setHours(0,0,0,0);
+  target=new Date(target.getTime()+nextMins*60000);
+  var diff=Math.max(0,Math.floor((target-bj)/1000));
+  var dh=Math.floor(diff/3600),dm=Math.floor((diff%3600)/60),ds=diff%60;
+  var tag=nextMins>24*60?'明天':'今天';
+  var tH=Math.floor(nextMins/60)%24,tM=nextMins%60;
+  document.getElementById('nextupd').textContent=
+    '⏰ 下次更新：'+tag+' '+pad(tH,2)+':'+pad(tM,2)+
+    '（还剩 '+dh+'小时'+pad(dm,2)+'分'+pad(ds,2)+'秒）';
+  if(diff===0){location.reload()}
+}
+setInterval(nextUpdate,1000);nextUpdate();
+function updateClock(){
+  var d=new Date;
+  var s=d.toLocaleString("zh-CN",{timeZone:"Asia/Shanghai",hour:"2-digit",minute:"2-digit",second:"2-digit",year:"numeric",month:"2-digit",day:"2-digit"});
+  document.getElementById("bjtime").textContent="🕐 北京时间 "+s;
+}
+setInterval(updateClock,1000);updateClock();
+"""
+
     html = f"""<!DOCTYPE html>
 <html lang="zh-CN">
 <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>游戏新闻 · 待发池</title>
-<script>
-function updateClock(){{var d=new Date;var s=d.toLocaleString("zh-CN",{{timeZone:"Asia/Shanghai",hour:"2-digit",minute:"2-digit",second:"2-digit",year:"numeric",month:"2-digit",day:"2-digit"}});document.getElementById("bjtime").textContent="🕐 北京时间 "+s}}setInterval(updateClock,1e3);updateClock();</script>
+<script>{js_code}</script>
 <style>
 * {{ margin:0; padding:0; box-sizing:border-box; }}
 body {{ font-family:-apple-system,"PingFang SC",sans-serif; background:#f5f5f5; padding:20px; }}
@@ -189,7 +224,7 @@ a {{ color:#333; text-decoration:none; }} a:hover {{ color:#1a73e8; text-decorat
 </style></head>
 <body>
 <div class="header"><h1>📦 游戏新闻 · 待发池</h1><p id="bjtime">🕐 北京时间 加载中...</p><p>共 {len(items)} 条 · 更新于 {now_str}</p></div>
-<div class="next-update">⏰ 下次更新：{next_str} · 每日 8:00/20:00 生成长图后清空</div>
+<div class="next-update" id="nextupd">⏰ 下次更新计算中...</div>
 <table>
 <tr><th class="num">#</th><th>新闻标题</th><th>来源</th><th>入库时间</th></tr>
 {rows}</table>
