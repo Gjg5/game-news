@@ -60,19 +60,24 @@ def is_gaming(text):
             return True
     return False
 
+def has_japanese(text):
+    return bool(re.search(r'[\u3040-\u309f\u30a0-\u30ff\uff66-\uff9f]', str(text)))
+
 def translate(text):
-    """翻译英文到中文，DeepSeek优先 + 多方案兜底"""
+    """翻译英文/日文到中文，DeepSeek优先 + 多方案兜底"""
     if not text or has_chinese(text):
         return text
-    # 方案1：DeepSeek API（高质量翻译）
+    is_jp = has_japanese(text)
+    # 方案1：DeepSeek API（自动识别语种）
     ds_key = os.environ.get("DEEPSEEK_API_KEY", "")
     if ds_key:
         try:
+            system_msg = "You are a translator. Translate game news titles to concise Chinese. Only output the translation."
             resp = requests.post("https://api.deepseek.com/v1/chat/completions",
                 json={
                     "model": "deepseek-chat",
                     "messages": [
-                        {"role": "system", "content": "You are a translator. Translate English game news titles to concise Chinese. Only output the translation."},
+                        {"role": "system", "content": system_msg},
                         {"role": "user", "content": f"Translate to Chinese: {text[:500]}"}
                     ],
                     "temperature": 0.1, "max_tokens": 200
@@ -85,22 +90,23 @@ def translate(text):
                 return t.strip()
         except:
             pass
-    # 方案2：deep-translator Google（备用）
+    # 方案2：deep-translator（Google自动检测语种）
     try:
         from deep_translator import GoogleTranslator
-        t = GoogleTranslator(source="en", target="zh-CN").translate(text[:500])
+        t = GoogleTranslator(source="auto", target="zh-CN").translate(text[:500])
         if t and any('\u4e00' <= c <= '\u9fff' for c in t):
             return t
     except:
         pass
-    # 方案3：有道API（最后兜底）
+    # 方案3：有道API
     try:
         import random
         salt = str(random.randint(10000, 99999))
         raw = text[:500]
+        from_lang = "JA" if is_jp else "EN"
         sign = hashlib.md5(("0e6e7d1a4b7f3c2d" + raw + salt + "yG7dH2kL9pQ4wR8x").encode()).hexdigest()
         resp = requests.post("https://openapi.youdao.com/api",
-            data={"q": raw, "from": "EN", "to": "zh-CHS",
+            data={"q": raw, "from": from_lang, "to": "zh-CHS",
                   "appKey": "0e6e7d1a4b7f3c2d", "salt": salt, "sign": sign},
             headers={"Content-Type": "application/x-www-form-urlencoded"}, timeout=5)
         j = resp.json()
