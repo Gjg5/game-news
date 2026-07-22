@@ -198,14 +198,6 @@ function nextUpdate(){
   if(diff===0){location.reload()}
 }
 setInterval(nextUpdate,1000);nextUpdate();
-function updateClock(){
-  var d=new Date;
-  var bj=new Date(d.getTime()+(d.getTimezoneOffset()+480)*60000);
-  var y=bj.getFullYear(),mo=pad(bj.getMonth()+1,2),da=pad(bj.getDate(),2);
-  var h=pad(bj.getHours(),2),mi=pad(bj.getMinutes(),2),s=pad(bj.getSeconds(),2);
-  document.getElementById("bjtime").textContent="🕐 北京时间 "+y+"/"+mo+"/"+da+" "+h+":"+mi+":"+s;
-}
-setInterval(updateClock,1000);updateClock();
 """
 
     html = f"""<!DOCTYPE html>
@@ -231,7 +223,7 @@ a {{ color:#333; text-decoration:none; }} a:hover {{ color:#1a73e8; text-decorat
 .next-update {{ background:#e8f0fe; border-radius:8px; padding:10px 16px; margin-bottom:16px; text-align:center; font-size:14px; color:#1a73e8; }}
 </style></head>
 <body>
-<div class="header"><h1>📦 游戏新闻 · 待发池</h1><p id="bjtime">🕐 北京时间 加载中...</p><p>共 {len(items)} 条 · 更新于 {now_str}</p></div>
+<div class="header"><h1>📦 游戏新闻 · 待发池</h1><p>共 {len(items)} 条 · 更新于 {now_str}</p></div>
 <div class="next-update" id="nextupd">⏰ 下次更新计算中...</div>
 <table>
 <tr><th class="num">#</th><th>新闻标题</th><th>来源</th><th>入库时间</th></tr>
