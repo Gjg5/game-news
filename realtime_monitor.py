@@ -1,4 +1,4 @@
-"""实时监控 → 存入新闻池（不直接进历史库）"""
+"""实时监控 → 存入新闻池（仅收集，不发邮件，每日生成时统一发）"""
 import os, json, re, html, hashlib
 from datetime import datetime, timezone, timedelta
 import requests, feedparser
@@ -99,30 +99,8 @@ def load_history_fingerprints():
     return set()
 
 def send_email(items):
-    pwd = os.environ.get("QQMAIL_PASSWORD", "")
-    if not pwd:
-        return
-    from email.mime.text import MIMEText
-    import smtplib
-    now = datetime.now(BJT).strftime("%H:%M")
-    body = f"🆕 {len(items)}条新游戏新闻 ({now})\n\n"
-    for i, it in enumerate(items, 1):
-        body += f"{i}. {it['title']}\n"
-        body += f"   📡 {it['source']}"
-        if it.get("link"): body += f"  🔗 {it['link']}"
-        body += "\n\n"
-    msg = MIMEText(body, "plain", "utf-8")
-    msg["From"] = "2586555901@qq.com"
-    msg["To"] = "2586555901@qq.com"
-    msg["Subject"] = f"【实时快报】{len(items)}条新闻 {now}"
-    try:
-        s = smtplib.SMTP_SSL("smtp.qq.com", 465)
-        s.login("2586555901@qq.com", pwd)
-        s.sendmail(msg["From"], [msg["To"]], msg.as_string())
-        s.quit()
-        print(f"  ✅ 已发邮件")
-    except:
-        pass
+    """不再实时发邮件，仅在每日8:00/20:00统一发送"""
+    pass  # 已禁用，由 game_news_generator.py 在每日生成时发送
 
 def main():
     now = datetime.now(BJT)

@@ -26,8 +26,6 @@ jobs:
           pip install feedparser requests
 
       - name: 扫描新新闻 → 存入新闻池
-        env:
-          QQMAIL_PASSWORD: ${{ secrets.QQMAIL_PASSWORD }}
         run: |
           python realtime_monitor.py
 
