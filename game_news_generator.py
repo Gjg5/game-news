@@ -3,9 +3,13 @@
 游戏新闻自动生成器 - 全自动版本
 从多个游戏媒体RSS抓取最新新闻，生成公众号竖版长图
 """
-import os, sys, json, re, html
+import os, sys, json, re, html, smtplib
 from datetime import datetime, timezone, timedelta
 from collections import defaultdict
+from email.mime.text import MIMEText
+from email.mime.multipart import MIMEMultipart
+from email.mime.base import MIMEBase
+from email import encoders
 
 import requests
 import feedparser
@@ -403,6 +407,42 @@ def generate_image(news_data, edition, date_str, date_weekday, footer_sources):
     return filepath, root_path
 
 
+def send_email(filepath, edition, date_str):
+    """通过QQ邮箱SMTP发送新闻图片"""
+    password = os.environ.get("QQMAIL_PASSWORD", "")
+    if not password:
+        print("  ⏭️ 未设置QQMAIL_PASSWORD环境变量，跳过邮件发送")
+        return
+
+    receiver = "2586555901@qq.com"
+    sender = "2586555901@qq.com"
+
+    msg = MIMEMultipart()
+    msg["From"] = sender
+    msg["To"] = receiver
+    msg["Subject"] = f"【游戏{edition}】{date_str}"
+
+    body = f"您好，以下是今日游戏{edition}，请查收附件图片。"
+    msg.attach(MIMEText(body, "plain", "utf-8"))
+
+    with open(filepath, "rb") as f:
+        attachment = MIMEBase("application", "octet-stream")
+        attachment.set_payload(f.read())
+        encoders.encode_base64(attachment)
+        attachment.add_header("Content-Disposition", f"attachment; filename={os.path.basename(filepath)}")
+        msg.attach(attachment)
+
+    try:
+        import smtplib
+        server = smtplib.SMTP_SSL("smtp.qq.com", 465)
+        server.login(sender, password)
+        server.sendmail(sender, [receiver], msg.as_string())
+        server.quit()
+        print(f"  ✅ 邮件已发送至 {receiver}")
+    except Exception as e:
+        print(f"  ❌ 邮件发送失败: {e}")
+
+
 def main():
     now_bj = datetime.now(BJT)
     hour = now_bj.hour
@@ -437,6 +477,9 @@ def main():
     print("🎨 正在生成图片...")
 
     filepath, root_path = generate_image(news_data, edition, date_str, date_weekday, footer_sources)
+
+    print("📧 正在发送邮件...")
+    send_email(filepath, edition, date_str)
 
     # 生成 index.html
     html_content = f"""<!DOCTYPE html>

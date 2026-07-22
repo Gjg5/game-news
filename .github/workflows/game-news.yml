@@ -8,15 +8,10 @@ on:
 
 permissions:
   contents: read
-  pages: write
-  id-token: write
 
 jobs:
   generate-news:
     runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
 
     steps:
       - name: 检出代码
@@ -37,15 +32,8 @@ jobs:
         run: |
           pip install -r requirements.txt
 
-      - name: 生成游戏新闻长图
+      - name: 生成游戏新闻长图并发送邮件
+        env:
+          QQMAIL_PASSWORD: ${{ secrets.QQMAIL_PASSWORD }}
         run: |
           python game_news_generator.py
-
-      - name: 上传产出物
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: '.'
-
-      - name: 部署到 GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
