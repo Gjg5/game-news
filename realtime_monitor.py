@@ -194,8 +194,10 @@ function nextUpdate(){
 setInterval(nextUpdate,1000);nextUpdate();
 function updateClock(){
   var d=new Date;
-  var s=d.toLocaleString("zh-CN",{timeZone:"Asia/Shanghai",hour:"2-digit",minute:"2-digit",second:"2-digit",year:"numeric",month:"2-digit",day:"2-digit"});
-  document.getElementById("bjtime").textContent="🕐 北京时间 "+s;
+  var bj=new Date(d.getTime()+(d.getTimezoneOffset()+480)*60000);
+  var y=bj.getFullYear(),mo=pad(bj.getMonth()+1,2),da=pad(bj.getDate(),2);
+  var h=pad(bj.getHours(),2),mi=pad(bj.getMinutes(),2),s=pad(bj.getSeconds(),2);
+  document.getElementById("bjtime").textContent="🕐 北京时间 "+y+"/"+mo+"/"+da+" "+h+":"+mi+":"+s;
 }
 setInterval(updateClock,1000);updateClock();
 """
