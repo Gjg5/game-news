@@ -195,7 +195,6 @@ tr:hover td {{ background:#fff5f5; }}
 
 
 def translate_to_chinese(text):
-def translate_to_chinese(text):
     """将英文文本翻译成中文（直接请求，不依赖第三方库），带缓存"""
     if not text or has_chinese(text):
         return text
