@@ -284,7 +284,7 @@ def main():
     for src in RSS_SOURCES:
         try:
             feed = feedparser.parse(src["url"])
-            for entry in feed.entries[:2]:
+            for entry in feed.entries[:5]:
                 title = entry.get("title", "").strip()
                 if not title or title in seen:
                     continue
@@ -321,12 +321,12 @@ def main():
     if new_items:
         pool = new_items + pool
         # 只保留最新的20条，超出部分自动淘汰
-        pool = pool[:20]
+        pool = pool[:30]
         save_pool(pool)
         print(f"\n🆕 {len(new_items)} 条 → 新闻池 (共{len(pool)}条)")
     else:
         print(f"  ✅ 无新新闻 (池中{len(pool)}条)")
-        pool = pool[:20]
+        pool = pool[:30]
         save_pool(pool)
     generate_pool_html(pool)
 
