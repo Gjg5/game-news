@@ -36,6 +36,20 @@ if not os.path.exists(FONT_PATH):
     if not os.path.exists(FONT_PATH):
         FONT_PATH = candidates[0] if candidates else FONT_PATH
         FONT_BOLD_PATH = candidates[0] if candidates else FONT_BOLD_PATH
+# Windows 兼容（微软雅黑）
+if not os.path.exists(FONT_PATH):
+    if os.name == 'nt':
+        win_fonts = [
+            "C:/Windows/Fonts/msyh.ttc",
+            "C:/Windows/Fonts/msyh.ttf",
+            "C:/Windows/Fonts/simhei.ttf",
+            "C:/Windows/Fonts/simsun.ttc",
+        ]
+        for f in win_fonts:
+            if os.path.exists(f):
+                FONT_PATH = f
+                FONT_BOLD_PATH = f
+                break
 
 EDITION = "早报"
 
