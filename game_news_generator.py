@@ -295,7 +295,11 @@ CATEGORY_KEYWORDS = {
     "🏢 行业风云": ["收购", "裁员", "关停", "破产", "财报", "收入", "起诉", "和解", "投资", "上市",
                        "acquisition", "layoff", "closure", "revenue", "lawsuit", "投资", "融资", "合作"],
     "📡 技术与平台": ["显卡", "GPU", "主机", "PS5", "Xbox", "Switch", "Steam", "Epic", "引擎", "AI",
-                        "技术", "平台", "虚幻", "Unity", "鸿蒙", "云游戏", "串流"],
+                        "技术", "平台", "虚幻", "Unity", "鸿蒙", "云游戏", "串流",
+                        "硬件", "手柄", "VR", "AR", "芯片", "散热", "光追", "帧数",
+                        "Steal Deck", "掌机", "预览版", "更新", "补丁", "升级",
+                        "优化", "兼容", "配置", "适配", "性能", "分辨率", "加载",
+                        "服务器", "网络", "延迟", "云存档", "跨平台"],
 }
 
 
@@ -402,11 +406,13 @@ def categorize_news(entries, max_per_cat=5):
             categories[best_cat].append(entry)
             categorized_titles.add(entry["title"])
 
-    # 补充未分类条目
-    misc_cats = ["🎮 新游动态", "🏢 行业风云"]
+    # 补充未分类条目（轮询4个分类，保证每个分类至少3条）
+    misc_cats = ["🎮 新游动态", "🏢 行业风云", "🔥 重磅头条", "📡 技术与平台"]
     for entry in entries:
         if entry["title"] not in categorized_titles:
-            for mc in misc_cats:
+            # 优先塞入最少条的分类
+            sorted_cats = sorted(misc_cats, key=lambda c: len(categories[c]))
+            for mc in sorted_cats:
                 if len(categories[mc]) < max_per_cat:
                     categories[mc].append(entry)
                     categorized_titles.add(entry["title"])
