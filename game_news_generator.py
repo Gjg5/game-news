@@ -494,7 +494,7 @@ def generate_image(news_data, edition, date_str, date_weekday, footer_sources):
         items = news_data["categories"].get(cat_name, [])
         total_height += 55
         for title, summary in items:
-            tl = wrap_text(title, fonts["card_title"], text_max_w, temp_draw)[:1]
+            tl = wrap_text(title, fonts["card_title"], text_max_w, temp_draw)[:2]
             sl = wrap_text(summary, fonts["card_summary"], text_max_w, temp_draw)[:3]
             content_h = 12 + len(tl) * line_title_h + 6 + len(sl) * line_summary_h + 12
             ch = max(70, content_h)
@@ -674,7 +674,7 @@ def main():
         items = categorized.get(cat, [])
         if items:
             news_data["category_order"].append(cat)
-            news_data["categories"][cat] = [(item["title"][:30], item["summary"][:50]) for item in items]
+            news_data["categories"][cat] = [(item["title"][:25], item["summary"][:50]) for item in items]
 
     if not news_data["categories"]:
         print("  ⏭️ 无可用的新闻分类")
