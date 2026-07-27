@@ -1,5 +1,45 @@
 [
   {
+    "fp": "0f041b15bbd2c5d635221b0dc888bb64",
+    "title": "微软确认Xbox网络当前宕机",
+    "summary": "不只是你，Xbox网络（或部分功能，取决于你阅读本文的时间）目前宕机了。",
+    "source": "GameSpot",
+    "link": "https://www.gamespot.com/articles/xbox-network-is-down-right-now-microsoft-confirms/",
+    "date": "2026-07-27 23:37"
+  },
+  {
+    "fp": "f398b862bd870c9ca4805e2de195a5cb",
+    "title": "《BeastLink》将于8月18日在PC平台开启抢先体验",
+    "summary": "多人合作巨型怪兽动作游戏《BeastLink》将于...在Steam平台开启PC版抢先体验",
+    "source": "Gematsu",
+    "link": "https://www.gematsu.com/2026/07/beastlink-launches-in-early-access-for-pc-on-august-18",
+    "date": "2026-07-27 23:37"
+  },
+  {
+    "fp": "008ae2b36dce2e94f1a87b38932effc5",
+    "title": "Square Enix总监称新《最终幻想》重制版需\"4到5部\"游戏",
+    "summary": "一位Square Enix高层认为，精准还原《最终幻想》新重制版将面临巨大挑战。",
+    "source": "Insider Gaming",
+    "link": "https://insider-gaming.com/new-final-fantasy-remakes-would-require-4-or-5-games-says-square-enix-director/",
+    "date": "2026-07-27 23:37"
+  },
+  {
+    "fp": "665427d018dd3c07018f329f24a6189e",
+    "title": "为何现在无法登录XBOX？7月27日故障解析",
+    "summary": "7月27日，全球微软XBOX用户遭遇大规模宕机，本指南详解一切。",
+    "source": "Insider Gaming",
+    "link": "https://insider-gaming.com/why-cant-i-sign-into-xbox-right-now-july-27-outage/",
+    "date": "2026-07-27 23:37"
+  },
+  {
+    "fp": "264456b5a2f1174100d4561d53456295",
+    "title": "XBOX遭遇重大故障，影响登录与已下载游戏",
+    "summary": "XBOX部分在线服务遭遇重大故障，已下载游戏无法运行",
+    "source": "Insider Gaming",
+    "link": "https://insider-gaming.com/xbox-suffers-major-outages-impacting-sign-ins-downloaded-games/",
+    "date": "2026-07-27 23:37"
+  },
+  {
     "fp": "da1650be62315c33bd6c4867c11e1eee",
     "title": "巫术背景 Roguelite 游戏《恶仙》发售，国区售价 43.2 元",
     "summary": "IT之家 7 月 27 日消息，独立厂商 Wayway Inc 开发并发行的民俗题材新游《恶仙》（原名 Aksun）现已在 Steam 平台发售，首发优惠将持续",
@@ -358,45 +398,5 @@
     "source": "PC Gamer",
     "link": "https://www.pcgamer.com/games/action/helldivers-2-is-giving-players-a-free-car-in-october-except-for-those-who-already-earned-it-in-june/",
     "date": "2026-07-26 20:35"
-  },
-  {
-    "fp": "af01260ac0bd75944085ee2ac8af59b5",
-    "title": "《超级变色龙》游戏开发团队调查第三方恶意地图“中招”，官方 Discord 交流频道遭黑客入侵",
-    "summary": "IT之家 7 月 26 日消息，据 4Gamers 报道，Steam 近期爆火的独立多人派对游戏《超级变色龙（MECCHA CHAMELEON）》的官方 Dis",
-    "source": "IT之家",
-    "link": "https://www.ithome.com/0/981/781.htm",
-    "date": "2026-07-26 19:13"
-  },
-  {
-    "fp": "3f4889ab670d97bdbccca04517dfd05e",
-    "title": "光荣特库摩《三国志 14 威力加强传承版》开启预购：Steam 国区 128 元，9 月 10 日解锁",
-    "summary": "IT之家 7 月 26 日消息，光荣特库摩宣布旗下三国志系列 40 周年纪念作品《三国志 14 威力加强传承版》已经开启预购，本作在 Steam 国区价格为 1",
-    "source": "IT之家",
-    "link": "https://www.ithome.com/0/981/779.htm",
-    "date": "2026-07-26 19:13"
-  },
-  {
-    "fp": "ea620548933e2b50911323c329f2148b",
-    "title": "オリジナルストーリーを楽しめる新作「この素晴らしい世界に祝福を！〜この愛すべき街に繁栄を！〜」，スマホ＆PC向けに配信決",
-    "summary": "KADOKAWAは2026年7月26日，「この素晴らしい世界に祝福を！〜この愛すべき街に繁栄を！〜」を発表した。対応機種はスマホとPCだ。また，スマホ版の事前登",
-    "source": "4gamer",
-    "link": "https://www.4gamer.net/games/027/G102766/20260724066/",
-    "date": "2026-07-26 19:13"
-  },
-  {
-    "fp": "a0270df402ed90ec67d695ba2817526d",
-    "title": "Steam 策略新游《噩梦边境》发售：国区售价 93 元，支持简体中文",
-    "summary": "IT之家 7 月 26 日消息，由 Ice Code Games 开发、知名策略游戏发行商 Slitherine Ltd. 推出的《噩梦边境 - Nightma",
-    "source": "IT之家",
-    "link": "https://www.ithome.com/0/980/335.htm",
-    "date": "2026-07-26 15:53"
-  },
-  {
-    "fp": "45766e0ae97bd0140a7c8121a12f142c",
-    "title": "Steam 客户端 Preview / Beta 通道更新发布：优化游戏及更新包下载传输表现",
-    "summary": "IT之家 7 月 26 日消息，Valve 现已向 Steam 客户端的 Preview / Beta 测试通道推送了新版本更新，本次更新重点针对下载相关模块进",
-    "source": "IT之家",
-    "link": "https://www.ithome.com/0/980/869.htm",
-    "date": "2026-07-26 15:53"
   }
 ]
