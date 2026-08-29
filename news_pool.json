@@ -1,5 +1,85 @@
 [
   {
+    "fp": "887a43194e64701c900b9544a0f8165f",
+    "title": "Xbox CEO称Project Helix包含“设备家族”",
+    "summary": "Xbox CEO Asha Sharma暗示Project Helix将涵盖不止一款设备，称Mi",
+    "source": "IGN",
+    "link": "https://www.ign.com/articles/xbox-ceo-says-project-helix-includes-a-family-of-devices",
+    "date": "2026-08-29 12:49"
+  },
+  {
+    "fp": "a97c8d30343e0a449ff039b2821c794a",
+    "title": "《地狱raiser：复兴》7分钟新游戏玩法解析",
+    "summary": "Saber Interactive发布了《克莱夫·巴克的Hellrais》中一些惊悚恐怖的新游戏玩法。",
+    "source": "GameSpot",
+    "link": "https://www.gamespot.com/videos/7-minutes-of-new-hellraiser-revival-gameplay-breakdown/",
+    "date": "2026-08-29 12:49"
+  },
+  {
+    "fp": "4da29b79e913022cbfd20c5a859ef6d9",
+    "title": "技术专家称《侠盗猎车手6》为迄今画面最先进的游戏，这解释了为何其帧率锁定在30FPS",
+    "summary": "《侠盗猎车手6》终于迎来首次大型实机演示，让我们首次真正一窥R星新作。",
+    "source": "GameSpot",
+    "link": "https://www.gamespot.com/articles/tech-experts-call-grand-theft-auto-6-the-most-visually-advanced-game-to-date-which-explains-why-its-stuck-at-30fps/",
+    "date": "2026-08-29 12:49"
+  },
+  {
+    "fp": "c43111a625ba8ddb3f96fc77cb1c534b",
+    "title": "CD Projekt Red 向 Gamescom 盗窃受害者伸出援手，业界纷纷声援",
+    "summary": "科隆游戏展年度盛会本应展示一些最值得期待的新游戏，但至少目前……",
+    "source": "GameSpot",
+    "link": "https://www.gamespot.com/articles/cd-projekt-red-offers-to-help-gamescom-theft-victim-as-industry-shows-its-support/",
+    "date": "2026-08-29 12:49"
+  },
+  {
+    "fp": "1d80b580493cc82437d0ff3bbbb6e2e5",
+    "title": "泄露的DLSS 5模组显示Nvidia的AI滤镜能多大程度影响你的游戏",
+    "summary": "英伟达尚未公布DLSS 5的发布日期，该技术早前公布时引发广泛争议。",
+    "source": "GameSpot",
+    "link": "https://www.gamespot.com/articles/leaked-dlss-5-mod-shows-just-how-much-nvidias-ai-filter-can-mess-with-your-games/",
+    "date": "2026-08-29 12:49"
+  },
+  {
+    "fp": "ec4028e8af8619b5ac389a4523bf5926",
+    "title": "平淡还是狂拽？互联网对《GTA 6》的杰森看法两极，PC Gamer 内部也意见不一。",
+    "summary": "每个人都有看法，我们也不例外。",
+    "source": "PC Gamer",
+    "link": "https://www.pcgamer.com/games/grand-theft-auto/bland-or-badass-the-internet-is-split-on-gta-6s-jason-and-so-is-pc-gamer/",
+    "date": "2026-08-29 12:49"
+  },
+  {
+    "fp": "ca809eaf029c3eff82476ff49048bb31",
+    "title": "《潜行者2》免费多人模式更新仍在开发中",
+    "summary": "在Gamescom期间，我与GSC Game World进行了交谈，他们向我保证他们仍在继续。",
+    "source": "Insider Gaming",
+    "link": "https://insider-gaming.com/stalker-2-free-multiplayer-update-remain-development/",
+    "date": "2026-08-29 12:49"
+  },
+  {
+    "fp": "af9a05ea9adbb4abf5d386584346a0ee",
+    "title": "ヴィクトル・アントノフが遺した西部劇「ガンズ・オブ・エスカトン」は，シューターである前にソウルライク［gamescom］",
+    "summary": "2026年8月28日，ドイツ・ケルンで開催中のgamescom2026の会場で，一人称視点のシューター「ガンズ・オブ・エスカトン」のデモを見せてもらった。開発は",
+    "source": "4gamer",
+    "link": "https://www.4gamer.net/games/022/G102216/20260829013/",
+    "date": "2026-08-29 12:49"
+  },
+  {
+    "fp": "2c3ad065a14f223c5190dec9bbc5ff6b",
+    "title": "明代の秘密警察を演じるアクションRPG「A Whisper of Fall 錦衣衛」は，やり直しの果てに“誰も死なない答",
+    "summary": "gamescom2026の会期3日目にあたる2026年8月28日，ドイツ・ケルンの会場でアクションRPG「AWhisperofFall錦衣衛」のデモを見せてもら",
+    "source": "4gamer",
+    "link": "https://www.4gamer.net/games/979/G097918/20260829008/",
+    "date": "2026-08-29 12:49"
+  },
+  {
+    "fp": "6027e951423fc7e9dcfb38e7f227a0e8",
+    "title": "「トロピコ 7」は，病院を建てただけでは市民を救えない。5000人の暮らしと政治をつなぐ「透明性」をハンズオフで確認［g",
+    "summary": "海外版の発売日が2027年1月28日に決まった「トロピコ7」。gamescom2026でハンズオフデモを見て，1年前の取材では見えなかった市民の暮らしが，支持や",
+    "source": "4gamer",
+    "link": "https://www.4gamer.net/games/939/G093900/20260829007/",
+    "date": "2026-08-29 12:49"
+  },
+  {
     "fp": "7836482e0b9ae683dac4b2f4b4cdc30b",
     "title": "米哈游大伟哥现身科隆展，现场晒合影",
     "summary": "【GameLook专稿，禁止转载！】 GameLook报道/今年科隆展可以说成为了一片中国游戏的海洋，科隆开幕夜集中亮相了14款中国产品，其中米哈游首款写实画风",
@@ -317,86 +397,6 @@
     "summary": "这要是八个月前发布就好了。",
     "source": "PC Gamer",
     "link": "https://www.pcgamer.com/games/third-person-shooter/arc-raiders-is-adding-a-camera-mode-as-part-of-octobers-major-update-but-some-fans-need-more-proof-that-the-games-not-going-to-wither-away/",
-    "date": "2026-08-28 00:38"
-  },
-  {
-    "fp": "a58c1087034fb068dd8eb3c8741c90ac",
-    "title": "Xbox光盘现可提供数字版游戏访问权限，微软自称此举是“对游戏保存更广泛承诺”的一部分。",
-    "summary": "微软看到了索尼的空门，果断射门。",
-    "source": "PC Gamer",
-    "link": "https://www.pcgamer.com/hardware/xbox-discs-will-now-grant-digital-access-to-games-as-part-of-microsofts-self-proclaimed-broader-commitment-to-game-preservation/",
-    "date": "2026-08-28 00:38"
-  },
-  {
-    "fp": "c69067907bb17f6a686919ee183f9681",
-    "title": "天哪，终于来了：《矮人要塞》今年晚些时候迎来首个神话与魔法更新，为每位玩家的世界带来独特的程序生成魔法系统。",
-    "summary": "幻想之所以为幻想的一切——每一部分都与那个特定宇宙的运作方式紧密相连",
-    "source": "PC Gamer",
-    "link": "https://www.pcgamer.com/games/sim/holy-crap-its-happening-dwarf-fortress-gets-its-first-myth-and-magic-update-later-this-year-bringing-each-players-world-its-own-procedural-magic-system/",
-    "date": "2026-08-28 00:38"
-  },
-  {
-    "fp": "dc71aa408f99ade5b693e00d21eb7d4d",
-    "title": "近20年后，Arkane创始人表示理解Valve为何取消从未问世的《Ravenholm》游戏：“归根结底是经济问题”",
-    "summary": "“我们长大了，对此也变得更加成熟了一些。”",
-    "source": "PC Gamer",
-    "link": "https://www.pcgamer.com/games/fps/almost-20-years-later-arkanes-founder-says-he-understands-why-valve-cancelled-the-ravenholm-game-that-never-was-it-all-came-down-to-the-economics/",
-    "date": "2026-08-28 00:38"
-  },
-  {
-    "fp": "f11738f1258b508e3c83c3172934613e",
-    "title": "《MILITSIONER》新增Xbox Series版本，2027年发售",
-    "summary": "第一人称卡夫卡式沉浸模拟游戏《MILITSIONER》将登陆Xbox Series和PC平台",
-    "source": "Gematsu",
-    "link": "https://www.gematsu.com/2026/08/militsioner-adds-xbox-series-version-launches-in-2027",
-    "date": "2026-08-28 00:38"
-  },
-  {
-    "fp": "e11d12ad8f1f49bdf27b3e861fffd2cc",
-    "title": "合作物理建造游戏《What Goes Up》公布，登陆PS5、Xbox Series和PC平台",
-    "summary": "发行商Team17与开发商Bossa Games宣布推出合作物理游戏《What Goes Up》",
-    "source": "Gematsu",
-    "link": "https://www.gematsu.com/2026/08/co-op-physics-based-building-game-what-goes-up-announced-for-ps5-xbox-series-and-pc",
-    "date": "2026-08-28 00:38"
-  },
-  {
-    "fp": "63bf555890bee4a54bd90882fe468746",
-    "title": "《斯科特·皮尔格里姆》EX DLC“重返乐队”现已上线，同步推出“街机混战”更新。",
-    "summary": "致敬游戏发布了复古风格横版冒险格斗游戏《斯科特·皮尔格林EX》下载版",
-    "source": "Gematsu",
-    "link": "https://www.gematsu.com/2026/08/scott-pilgrim-ex-dlc-back-in-the-band-now-available-alongside-coin-op-chaos-update",
-    "date": "2026-08-28 00:38"
-  },
-  {
-    "fp": "c1ff692371484eaad9e0e3986856dd43",
-    "title": "《极限竞速：地平线6》尚未正式发售，Steam上已火爆异常",
-    "summary": "本周Steam上有多款备受期待的游戏上线，但就《极限竞速：地平线6》而言，",
-    "source": "VG247",
-    "link": "https://www.vg247.com/forza-horizon-6-steam-numbers-big-launch",
-    "date": "2026-08-28 00:38"
-  },
-  {
-    "fp": "7a2d71d809ae659fc35e8835c3bdbd33",
-    "title": "《神秘信使》最忠实的玩家因游玩过度而遭大规模封禁",
-    "summary": "《神秘信使》堪称最优秀的恋爱模拟游戏之一，沉寂了大约七年。",
-    "source": "VG247",
-    "link": "https://www.vg247.com/mystic-messenger-ban-wave-thousands-of-hourglasses-anniversary",
-    "date": "2026-08-28 00:38"
-  },
-  {
-    "fp": "a0a554d1143b54b1e057417a6a26f804",
-    "title": "《极限竞速：地平线6》评测——面向所有人的驾驶游戏，却仍难摆脱收集赛车的传统",
-    "summary": "有一种观点认为，像《极限竞速：地平线》这样长期运行的系列游戏，要想保持如此持续的人气，实属不易。",
-    "source": "VG247",
-    "link": "https://www.vg247.com/forza-horizon-6-review",
-    "date": "2026-08-28 00:38"
-  },
-  {
-    "fp": "16fd72fdfb66260c80532ac02348946e",
-    "title": "「ELDEN RING」，アップデートファイル“Ver.1.17”を配信。DLC「Tarnished Pack」への対応",
-    "summary": "フロム・ソフトウェアは本日（2026年8月27日），アクションRPG「ELDENRING」で，最新アップデートファイル“Ver.1.17”を配信した。今回のアッ",
-    "source": "4gamer",
-    "link": "https://www.4gamer.net/games/463/G046388/20260827066/",
     "date": "2026-08-28 00:38"
   }
 ]
