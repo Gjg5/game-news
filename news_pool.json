@@ -1,5 +1,61 @@
 [
   {
+    "fp": "55a539ae5b9b061e195a71bb9d2c2b90",
+    "title": "《维斯特洛之战》开发者正为涌入的大量《权力的游戏》粉丝做准备，这些粉丝从未玩过即时战略游戏。",
+    "summary": "《维斯特洛之战》是一款面向即时战略爱好者的即时战略游戏，但开发者们",
+    "source": "IGN",
+    "link": "https://www.ign.com/articles/the-war-for-westeros-developers-are-planning-for-a-flood-of-game-of-thrones-fans-who-have-never-played-an-rts",
+    "date": "2026-09-08 20:12"
+  },
+  {
+    "fp": "6d5d34243a628ac5fb3a0e281dd865f3",
+    "title": "任天堂商店泄露显示《塞尔达传说：时之笛》Switch 2重制版定价",
+    "summary": "看起来任天堂无意中透露了《塞尔达传说：时之笛》重制版的价格。",
+    "source": "IGN",
+    "link": "https://www.ign.com/articles/nintendo-store-leak-reveals-the-legend-of-zelda-ocarina-of-time-switch-2-remake-pricing",
+    "date": "2026-09-08 20:12"
+  },
+  {
+    "fp": "b41b39bb783d3ce0958e6b4f72f663cc",
+    "title": "卡普空谈及“重启”休眠系列，让我对《鬼泣6》充满期待",
+    "summary": "《鬼武者》新作上周登陆PC和主机，目前看来卡普空又添一款佳作。",
+    "source": "GameSpot",
+    "link": "https://www.gamespot.com/articles/capcom-is-getting-my-hopes-up-for-devil-may-cry-6-with-its-talk-of-reactivating-dormant-franchises/",
+    "date": "2026-09-08 20:12"
+  },
+  {
+    "fp": "a9c727fd85819e3fc51007e67d044a84",
+    "title": "《Arc Raiders》在《冰冻小径》发布前的最后一次更新今日上线，带来新橡皮鸭，并提醒玩家还有一个月时间用完即将过期",
+    "summary": "还有一个新的突袭者项目可以打发时间。",
+    "source": "PC Gamer",
+    "link": "https://www.pcgamer.com/games/third-person-shooter/arc-raiders-last-live-update-until-frozen-trails-releases-today-bringing-players-new-rubber-ducks-and-a-reminder-that-youve-one-month-to-spend-your-expiring-currency/",
+    "date": "2026-09-08 20:12"
+  },
+  {
+    "fp": "f40dd142095b6cb14b25eaf255302f59",
+    "title": "Valve似乎正在为Steam Frame实施预订系统，暗示其预计发售时需求将超过供应。",
+    "summary": "比你想的更近。",
+    "source": "PC Gamer",
+    "link": "https://www.pcgamer.com/hardware/vr-hardware/valve-appears-to-implementing-a-reservation-system-for-the-steam-frame-and-we-all-know-how-well-that-worked-last-time/",
+    "date": "2026-09-08 20:12"
+  },
+  {
+    "fp": "7a71b161e1340c79291b9e4dcf6dd68d",
+    "title": "《怪物猎人：荒野》扩展包“飞升”预告——‘剑盾强化动作解析’",
+    "summary": "卡普空发布了《怪物猎人：荒野》大型扩展包“飞升”的新预告片，展示了",
+    "source": "Gematsu",
+    "link": "https://www.gematsu.com/2026/09/monster-hunter-wilds-expansion-ascendance-trailer-sword-shield-boosted-action-breakdown",
+    "date": "2026-09-08 20:12"
+  },
+  {
+    "fp": "d97b0eee3fd73e01e5823a5c9b301093",
+    "title": "「Shapez」のスピンオフパズルゲーム「puzzlez - a shapez game」が発表に。自動化工場のシステム",
+    "summary": "tobsprGamesは2026年9月7日，開発中の新作タイトル「puzzlez-ashapezgame」を発表し，アナウンストレイラーを公開した。本作は，大規",
+    "source": "4gamer",
+    "link": "https://www.4gamer.net/games/040/G104045/20260908056/",
+    "date": "2026-09-08 20:12"
+  },
+  {
     "fp": "cad0685ec46b571fd852b2353a45e6ee",
     "title": "微软 Xbox Series X 游戏机远程串流体验悄悄升级，支持 1440P 分辨率",
     "summary": "IT之家 9 月 8 日消息，微软 Xbox 系列游戏机的远程串流体验近期迎来悄无声息的升级。一名参与了 Xbox Alpha Ring Insider 测试计",
@@ -342,61 +398,5 @@
     "source": "VG247",
     "link": "https://www.vg247.com/forza-horizon-6-steam-numbers-big-launch",
     "date": "2026-09-07 14:51"
-  },
-  {
-    "fp": "7a2d71d809ae659fc35e8835c3bdbd33",
-    "title": "《神秘信使》最忠实的玩家因过度游戏而遭大规模封禁",
-    "summary": "《神秘信使》堪称最佳恋爱模拟游戏之一，沉寂约七年后再度归来。",
-    "source": "VG247",
-    "link": "https://www.vg247.com/mystic-messenger-ban-wave-thousands-of-hourglasses-anniversary",
-    "date": "2026-09-07 14:51"
-  },
-  {
-    "fp": "a0a554d1143b54b1e057417a6a26f804",
-    "title": "《极限竞速：地平线6》评测——面向所有人的驾驶游戏仍难摆脱收集赛车的传统",
-    "summary": "有一种观点认为，像《极限竞速：地平线》这样长期运行的系列要保持持续受欢迎，实属不易。",
-    "source": "VG247",
-    "link": "https://www.vg247.com/forza-horizon-6-review",
-    "date": "2026-09-07 14:51"
-  },
-  {
-    "fp": "58a7bc7e393afa2c9bd3c740ba6d65ec",
-    "title": "見下ろし型5v5タクティカルシューター「POLYSTRIKE」，発表3週間弱でSteamウィッシュリスト約1万件。日本語",
-    "summary": "RobinEntertainmentは，開発中の「POLYSTRIKE」のSteamウィッシュリスト登録数が，正式発表から3週間弱で約1万件に達したと発表した。",
-    "source": "4gamer",
-    "link": "https://www.4gamer.net/games/706/G070647/20260907020/",
-    "date": "2026-09-07 14:51"
-  },
-  {
-    "fp": "f5079aae43f2e63fa23eb9190ba33cd9",
-    "title": "3款爆卖“AI原生游戏”怎么赢的？“千万玩家、百万套销量、月活近300万”全兑现！",
-    "summary": "【GameLook专稿，禁止转载！】 GameLook报道/今年的Chinjoy线下活动，Gamelook有一个非常直观的感受，那就是新一代国内开发者拿出来的游",
-    "source": "GameLook",
-    "link": "http://www.gamelook.com.cn/2026/09/601538/",
-    "date": "2026-09-07 09:55"
-  },
-  {
-    "fp": "91c723d7da050c295564d8f4acc14152",
-    "title": "米哈游要造“AI梦工厂”？《雨之城》内测 AI 视频平台，玩家人人拍大片！",
-    "summary": "【Game Look专稿，禁止转载！】 Game look报道/AI视频对中国网民和玩家来说，已经不是什么新鲜事了。有多少人忍不住在B站、抖音为AI短剧或AI漫",
-    "source": "GameLook",
-    "link": "http://www.gamelook.com.cn/2026/09/601520/",
-    "date": "2026-09-07 09:55"
-  },
-  {
-    "fp": "e3ede8b79844c0ba18f54977aa833a1e",
-    "title": "报告：Steam前八个月收入达150亿美元，“中端市场”扩大是真正增长极",
-    "summary": "【GameLook专稿，禁止转载！】 GameLook报道/Steam 收入又创下了新纪录。海外数据平台Alineaanalytics近日公布的数据显示，202",
-    "source": "GameLook",
-    "link": "http://www.gamelook.com.cn/2026/09/601521/",
-    "date": "2026-09-07 09:55"
-  },
-  {
-    "fp": "9780bf1fc943eecc613f4d9fd923dba5",
-    "title": "运营十一年稳居畅销头部，《梦幻西游》手游的长青逻辑到底是什么？",
-    "summary": "【GameLook专稿，禁止转载！】 GameLook报道/进入存量竞争深水区的国内游戏市场，MMO从来都是最考验产品长跑能力的赛道。潮水退去，曾经红极一时的产",
-    "source": "GameLook",
-    "link": "http://www.gamelook.com.cn/2026/09/601425/",
-    "date": "2026-09-07 09:55"
   }
 ]
