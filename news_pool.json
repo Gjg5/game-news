@@ -1,5 +1,53 @@
 [
   {
+    "fp": "80c37fa8c766ac10e5264b6ed0d4ccd6",
+    "title": "分析：柠檬微趣 VS 点点互动，二合游戏谁做的更好？",
+    "summary": "【GameLook专稿，禁止转载！】 GameLook报道/点点互动在5月份的时候上线了一款名为《Just Desserts》的合并新游戏，作为打造了《Whit",
+    "source": "GameLook",
+    "link": "http://www.gamelook.com.cn/2026/09/602057/",
+    "date": "2026-09-14 16:00"
+  },
+  {
+    "fp": "5aaec73f0d467250b5b3b4c146119891",
+    "title": "《最后生还者2》多人模式MOD应索尼要求取消",
+    "summary": "《最后生还者2》PC版的PvP多人模组在……之后将不再发布",
+    "source": "IGN",
+    "link": "https://www.ign.com/articles/the-last-of-us-part-2-multiplayer-mod-cancelled-at-sonys-request",
+    "date": "2026-09-14 16:00"
+  },
+  {
+    "fp": "e8bf119231bdc5b0db5586ff931d5223",
+    "title": "魔女之泉动作RPG《傀儡之影：皮尤莉塔的故事》宣布登陆主机和PC",
+    "summary": "WitchSpring系列开发商Kiwi Walks公布《Shade of the Marionette: The Story of Piyorit》",
+    "source": "Gematsu",
+    "link": "https://www.gematsu.com/2026/09/witchspring-action-rpg-shade-of-the-marionette-the-story-of-piyorita-announced-for-consoles-pc",
+    "date": "2026-09-14 16:00"
+  },
+  {
+    "fp": "f14ed642ed9ce99c55900b5abc2c018e",
+    "title": "《怪物猎人：荒野》扩展包“崛起”预告片——“斩击斧强化动作解析”",
+    "summary": "卡普空发布了《怪物猎人：荒野》大型扩展包“崛起”的新预告片，展示了",
+    "source": "Gematsu",
+    "link": "https://www.gematsu.com/2026/09/monster-hunter-wilds-expansion-ascendance-trailer-switch-axe-boosted-action-breakdown",
+    "date": "2026-09-14 16:00"
+  },
+  {
+    "fp": "16fb5846525ed8d80f11c351d6f09e4f",
+    "title": "PlayStation关闭《最后生还者2》多人模式模组",
+    "summary": "索尼已向《最后生还者2》完整多人模式模组的创作者发出信函，要求",
+    "source": "Insider Gaming",
+    "link": "https://insider-gaming.com/sony-killed-last-of-us-multiplayer-yet-again/",
+    "date": "2026-09-14 16:00"
+  },
+  {
+    "fp": "14779dd0b32887915713d95576867f0f",
+    "title": "「Delve Survivors: A Dungeon Roguelike」，Steam版を11月12日発売。9つのメイ",
+    "summary": "NGJは本日，ターン制ローグライク「DelveSurvivors:ADungeonRoguelike」のSteam版を2026年11月12日に発売すると発表した",
+    "source": "4gamer",
+    "link": "https://www.4gamer.net/games/930/G093051/20260914022/",
+    "date": "2026-09-14 16:00"
+  },
+  {
     "fp": "5fad43922cd2e810f66a75957169413a",
     "title": "“游戏火了、却不是自己的”？Epic阻止UGC开发者注册商标：“不允许霸占类型名”",
     "summary": "【GameLook专稿，禁止转载！】 GameLook报道/在如今生态日益繁荣的UGC（用户生成内容）游戏平台上，一个热门玩法的诞生往往能迅速撬动巨大的流量。 ",
@@ -350,53 +398,5 @@
     "source": "Gematsu",
     "link": "https://www.gematsu.com/2026/09/fatal-fury-city-of-the-wolves-dlc-character-kim-kaphwan-launches-september-24",
     "date": "2026-09-13 10:07"
-  },
-  {
-    "fp": "ea838656f0e10b631b0221fd8a3c2267",
-    "title": "《暗黑破坏神4：憎恨之躯》合集将于9月15日登陆Switch 2",
-    "summary": "暴雪娱乐将于9月……在Switch 2上发布《暗黑破坏神4：仇恨之躯合集》",
-    "source": "Gematsu",
-    "link": "https://www.gematsu.com/2026/09/diablo-iv-age-of-hatred-collection-coming-to-switch-2-on-september-15",
-    "date": "2026-09-13 10:07"
-  },
-  {
-    "fp": "508ecb4cca7d2e426b4c50d022f93571",
-    "title": "《战争之犬》玩家数量飙升，全天零差评",
-    "summary": "WARDOGS持续引人注目，游戏评价一天内大幅回暖",
-    "source": "Insider Gaming",
-    "link": "https://insider-gaming.com/wardogs-player-count-entire-day-zero-negative-reviews/",
-    "date": "2026-09-13 10:07"
-  },
-  {
-    "fp": "44b4a0b35607dd2caeda1f889ff7902e",
-    "title": "阿莎·夏尔马修复XBOX的计划始于残酷的诚实：“清晰即是善意”",
-    "summary": "XBOX CEO阿莎·夏尔马在应对营收下滑、Game Pass增长乏力时表示“清晰即是善意”",
-    "source": "Insider Gaming",
-    "link": "https://insider-gaming.com/asha-sharmas-plan-to-fix-xbox-clarity-is-kindness/",
-    "date": "2026-09-13 10:07"
-  },
-  {
-    "fp": "b97f208719630a6f26ebaf2071138936",
-    "title": "「餓狼伝説 City of the Wolves」，最新DLCキャラ「キム・カッファン」を9月24日に配信。2人の息子に",
-    "summary": "SNKは本日（2026年9月13日），対戦格闘ゲーム「餓狼伝説CityoftheWolves」のSeasonPass3「DESTINEDFORREVENGE」に",
-    "source": "4gamer",
-    "link": "https://www.4gamer.net/games/649/G064915/20260911061/",
-    "date": "2026-09-13 10:07"
-  },
-  {
-    "fp": "ed809c077a3804bbe82255f5eecbdb3f",
-    "title": "Level-5老板回应AI争议，粉丝对游戏发布会表示不满",
-    "summary": "Level-5就粉丝发现使用生成式AI一事道歉并解释",
-    "source": "IGN",
-    "link": "https://www.ign.com/articles/level-5-boss-addresses-ai-backlash-after-fans-hit-out-at-game-reveal-showcase",
-    "date": "2026-09-13 01:32"
-  },
-  {
-    "fp": "288e8ea38d3f0f0f6a4def85021c1375",
-    "title": "《勇者斗恶龙怪兽篇：凋零世界》有500只怪兽可供收集，而且它们都超级怪异 | IGN前瞻",
-    "summary": "到目前为止，《勇者斗恶龙 怪兽篇：凋零世界》正逐渐成为又一款扎实且迷人的作品。",
-    "source": "IGN",
-    "link": "https://www.ign.com/articles/dragon-quest-monsters-the-withered-world-has-500-beasts-to-collect-and-theyre-all-super-weird-ign-preview",
-    "date": "2026-09-13 01:32"
   }
 ]
