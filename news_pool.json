@@ -1,5 +1,85 @@
 [
   {
+    "fp": "c4b3d9500d39f5b4ff821741ade2900d",
+    "title": "微软暗示将关闭Ninja Theory，拯救《地狱之刃》开发商的交易告吹",
+    "summary": "微软在两笔交易后暗示有意关闭《地狱之刃》开发商Ninja Theory",
+    "source": "IGN",
+    "link": "https://www.ign.com/articles/microsoft-signals-intention-to-close-down-ninja-theory-after-deals-to-save-the-hellblade-developer-fall-through",
+    "date": "2026-09-23 01:28"
+  },
+  {
+    "fp": "8a0d8d7ea10b4def345c98450ece735c",
+    "title": "《Pragmata》是一款融合《死亡空间》风格的奶爸游戏，必玩之作现已史低价",
+    "summary": "Pragmata的开发历程颇为曲折。它曾被无限期推迟，并从",
+    "source": "GameSpot",
+    "link": "https://www.gamespot.com/articles/pragmata-is-a-dad-game-dead-space-and-its-a-must-play-thats-now-cheaper-than-ever/",
+    "date": "2026-09-23 01:28"
+  },
+  {
+    "fp": "8ef6cb72e2973125bd888ca38b5c4a85",
+    "title": "雷曼传奇重述——10分钟新游戏演示",
+    "summary": "查看育碧《雷曼传奇：重述》重制版的新玩法，包含来自“陆地”的关卡",
+    "source": "GameSpot",
+    "link": "https://www.gamespot.com/videos/rayman-legends-retold-10-minutes-of-new-gameplay/",
+    "date": "2026-09-23 01:28"
+  },
+  {
+    "fp": "908be425c50ccc91bffad77f12252a15",
+    "title": "《光环》下一款游戏来自一个意想不到的开发商：动视",
+    "summary": "微软正式宣布《光环》系列重大变动，将由动视负责开发",
+    "source": "GameSpot",
+    "link": "https://www.gamespot.com/articles/halo-next-game-is-coming-from-an-unexpected-developer-activision/",
+    "date": "2026-09-23 01:28"
+  },
+  {
+    "fp": "37ad20994a4c32ab43bec41bf6c35cae",
+    "title": "Xbox再裁员268人，黑曜石并入Bethesda，动视接管光环",
+    "summary": "Xbox称其3200人裁员计划已完成约四分之三。",
+    "source": "PC Gamer",
+    "link": "https://www.pcgamer.com/gaming-industry/xbox-lays-off-268-more-employees-merges-obsidian-into-bethesda-and-puts-activision-in-charge-of-halo/",
+    "date": "2026-09-23 01:28"
+  },
+  {
+    "fp": "98322ae8dcf92097618d2a3d1efc6283",
+    "title": "《中土世界：暗影捆绑包》宣布登陆Switch 2",
+    "summary": "Aspyr宣布了Switch 2版《中土世界：暗影捆绑包》，其中包括《中土世界：暗影魔多》。",
+    "source": "Gematsu",
+    "link": "https://www.gematsu.com/2026/09/middle-earth-shadow-bundle-announced-for-switch-2",
+    "date": "2026-09-23 01:28"
+  },
+  {
+    "fp": "4da5287b09a5dbac1d0a94de18ee210c",
+    "title": "雷曼传奇重述“概览”预告片",
+    "summary": "育碧及其蒙彼利埃和米兰工作室发布六分钟游戏实机演示",
+    "source": "Gematsu",
+    "link": "https://www.gematsu.com/2026/09/rayman-legends-retold-overview-trailer",
+    "date": "2026-09-23 01:28"
+  },
+  {
+    "fp": "b3f058d699db05e275d927e3972cef30",
+    "title": "唱片先生上手预览：说真的，这是款超棒的游戏",
+    "summary": "向乔治问好，他看似平凡的生活其实是一种神奇的存在，让他能感知穆",
+    "source": "Insider Gaming",
+    "link": "https://insider-gaming.com/mr-records-preview/",
+    "date": "2026-09-23 01:28"
+  },
+  {
+    "fp": "0ef0c3038b20d82b66d0c858971ca6e4",
+    "title": "《腐烂国度3》仍计划在XBOX Game Pass上发布",
+    "summary": "Undead Labs与XBOX分离不会影响《腐烂国度3》的Game Pass发布。更多内容如下",
+    "source": "Insider Gaming",
+    "link": "https://insider-gaming.com/state-of-decay-3-still-planned-for-release-on-xbox-game-pass/",
+    "date": "2026-09-23 01:28"
+  },
+  {
+    "fp": "2fb3601c07f0f7e27fc103a1172f9396",
+    "title": "敵の技を「盗んで」叩き返すアクションアドベンチャー「False Hero」がSteamでリリース",
+    "summary": "Ytopiaは本日（2026年9月22日），TorchlightGamesが開発した「FalseHero」の配信をSteamで開始した。敵の技を盗み，自分の攻撃",
+    "source": "4gamer",
+    "link": "https://www.4gamer.net/games/013/G101305/20260918049/",
+    "date": "2026-09-23 01:28"
+  },
+  {
     "fp": "fc91bd5312f2b52d38ba0e08aaf58f79",
     "title": "塞尔达传说电影女演员发布神秘预告，引发预告片即将发布的期待",
     "summary": "《塞尔达传说》电影主演博·布拉加森让人们对任天堂即将发布预告片充满期待",
@@ -318,85 +398,5 @@
     "source": "PC Gamer",
     "link": "https://www.pcgamer.com/games/im-taking-insomniacs-wolverine-patch-as-a-sign-this-is-as-bad-as-its-going-to-get/",
     "date": "2026-09-21 23:12"
-  },
-  {
-    "fp": "f6eaa5f0cac7fb378ab2a5a4e229d434",
-    "title": "《时间回响：新黎明》剧情DLC“时间回响：拉撒路”实机演示——‘像探路者一样战斗’",
-    "summary": "Bloober Team发布了《Cronos: The New Dawn》四分钟游戏演示，故事背景揭晓。",
-    "source": "Gematsu",
-    "link": "https://www.gematsu.com/2026/09/cronos-the-new-dawn-story-dlc-cronos-lazarus-gameplay-presentation-fight-like-a-pathfinder",
-    "date": "2026-09-21 23:12"
-  },
-  {
-    "fp": "c053fc7294a32cabdb1936adb3180a8d",
-    "title": "索尼专利可将PS5手柄变成支付设备",
-    "summary": "索尼新专利或将PS5手柄变为支付设备，更加便捷。",
-    "source": "Insider Gaming",
-    "link": "https://insider-gaming.com/sony-patent-could-turn-ps5-controllers-into-payment-devices/",
-    "date": "2026-09-21 23:12"
-  },
-  {
-    "fp": "a3bebf557a92887f255fff518f811ab1",
-    "title": "宝可梦发布神秘视频，引发红蓝宝石Switch移植版期待",
-    "summary": "一段新视频让宝可梦粉丝期待《红宝石》和《蓝宝石》移植到Nintendo Switch的消息。",
-    "source": "Insider Gaming",
-    "link": "https://insider-gaming.com/pokemon-shares-mysterious-video-sparking-ruby-sapphire-switch-port-hopes/",
-    "date": "2026-09-21 23:12"
-  },
-  {
-    "fp": "a298062e8f8c4f8776fbc878bfc40201",
-    "title": "好きな素材を選び，デザインを決めてドレス作り。完成までの工程が楽しめるSLG「Dressmaker」，Steamで配信開",
-    "summary": "CozyLivesは本日，PC/Mac用ソフト「Dressmaker」の配信をSteamで開始した。本作は，ドレス作りのあらゆる工程を楽しめるシミュレーションゲ",
-    "source": "4gamer",
-    "link": "https://www.4gamer.net/games/015/G101519/20260921051/",
-    "date": "2026-09-21 23:12"
-  },
-  {
-    "fp": "8cabb2b76bcdcd8469364030383f5357",
-    "title": "ジャガイモの皮むきをひたすら続ける一人称視点のシミュレーション「ポテト・プリーズ」発表。Reveal Trailerを公",
-    "summary": "GoldenHornStudiosは2026年9月20日，PC向けシミュレーションゲーム「ポテト・プリーズ（PotatoPlease）」を発表し，RevealT",
-    "source": "4gamer",
-    "link": "https://www.4gamer.net/games/044/G104482/20260921063/",
-    "date": "2026-09-21 23:12"
-  },
-  {
-    "fp": "e032b0d5fd971b7722ef255617683387",
-    "title": "Steam一周回顾：这家独立发行商一天内在Steam上发布了29款看起来很糟糕的游戏——他们能赚到钱吗？",
-    "summary": "截至9月20日当周所有有趣的Steam动态。",
-    "source": "PC Gamer",
-    "link": "https://www.pcgamer.com/gaming-industry/steam-week-in-review-this-indie-publisher-released-29-terrible-looking-steam-games-in-a-single-day-will-they-make-any-money/",
-    "date": "2026-09-21 16:05"
-  },
-  {
-    "fp": "725d588242c9a9289a9273eb621076f4",
-    "title": "本周日本游戏发售：《寂静岭：Townfall》、《GOBBLE》等",
-    "summary": "《寂静岭：小镇陨落》将登陆PlayStation 5和PC，《GOBBLE》将登陆PlayStation 5、Switch 2……",
-    "source": "Gematsu",
-    "link": "https://www.gematsu.com/2026/09/this-weeks-japanese-game-releases-silent-hill-townfall-gobble-more",
-    "date": "2026-09-21 16:05"
-  },
-  {
-    "fp": "af4c2b5a574a6d49bc031af5338107e7",
-    "title": "“用AI编程的菜鸟太多、忍不了”！知名极客停止PS5 Linux项目、宣布离职",
-    "summary": "【GameLook专稿，禁止转载！】 GameLook报道/虽说AI是最近几年最热的话题，但AI的问题也在不断显现。比如在7月份的时候，Godot基金会就发布公",
-    "source": "GameLook",
-    "link": "http://www.gamelook.com.cn/2026/09/602609/",
-    "date": "2026-09-21 10:24"
-  },
-  {
-    "fp": "7c37343e85112974540b340c41678ea7",
-    "title": "“不加班,不乱改,不堆人”！CEO揭秘《黎明行者之血》，网易4000万美元赌中爆款",
-    "summary": "【GameLook专稿，禁止转载！】 GameLook报道/九月的欧美游戏圈，跑出了一匹谁都没想到的黑马。 由前CDPR核心成员康拉德·托马什凯维奇创立的Reb",
-    "source": "GameLook",
-    "link": "http://www.gamelook.com.cn/2026/09/602575/",
-    "date": "2026-09-21 10:24"
-  },
-  {
-    "fp": "2810138bcb047ea642f40f496db10998",
-    "title": "波比玩偶时光衍生游戏逃离玩偶时光公布抢先体验发布日期",
-    "summary": "逃离玩具时光：波比玩具时光的多人合作生存恐怖撤离衍生作",
-    "source": "IGN",
-    "link": "https://www.ign.com/articles/poppy-playtime-spinoff-escape-from-playtime-gets-early-access-release-date",
-    "date": "2026-09-21 10:24"
   }
 ]
