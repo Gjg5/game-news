@@ -1,5 +1,93 @@
 [
   {
+    "fp": "66d0ddad95eb1246afe4c2d8fe9a5717",
+    "title": "窃贼为抢GPU偷走英伟达卡车，结果只得到20吨沙子",
+    "summary": "众所周知，目前GPU价值连城，随着持续的RAM危机",
+    "source": "IGN",
+    "link": "https://www.ign.com/articles/thieves-on-the-hunt-for-gpus-stole-nvidia-trucks-but-all-they-got-was-20-tons-of-sand",
+    "date": "2026-09-29 01:44"
+  },
+  {
+    "fp": "a5144532fe8963aee0b58cebbecbd720",
+    "title": "《巫师3：狂猎》重制版更新补丁说明包含PC和主机专属改动",
+    "summary": "CD Projekt发布了《巫师3：狂猎》重制版更新的补丁说明，确认",
+    "source": "IGN",
+    "link": "https://www.ign.com/articles/the-witcher-3-wild-hunt-remastered-update-patch-notes-include-pc-specific-and-console-specific-changes",
+    "date": "2026-09-29 01:44"
+  },
+  {
+    "fp": "9bc8e7751f2a4703e7a184ca7d3c10dc",
+    "title": "Steam必玩节奏游戏",
+    "summary": "",
+    "source": "IGN",
+    "link": "https://www.ign.com/articles/top-10-best-steam-rhythm-action-games",
+    "date": "2026-09-29 01:44"
+  },
+  {
+    "fp": "c342f526e4371db561089c751592ba67",
+    "title": "《绿灯侠》第八集预告暗示季终走向，引发诸多猜测",
+    "summary": "HBO发布了《绿灯侠》第八集的预告片，预告了多项重大剧情发展。",
+    "source": "IGN",
+    "link": "https://www.ign.com/articles/lanterns-episode-8-trailer-hints-at-whats-to-come-in-season-finale-sparks-a-number-of-theories",
+    "date": "2026-09-29 01:44"
+  },
+  {
+    "fp": "6a496d12291a30ac0eef8f7993679278",
+    "title": "《最后生还者》第三季新增约翰·古德曼及更多游戏演员",
+    "summary": "HBO公布了《拉》剧第三季（可能是最终季）的更多选角细节。",
+    "source": "GameSpot",
+    "link": "https://www.gamespot.com/articles/the-last-of-us-season-3-adds-john-goodman-and-even-more-actors-from-the-games/",
+    "date": "2026-09-29 01:44"
+  },
+  {
+    "fp": "6620f991c85f293266bfa44ecdd0a40c",
+    "title": "《生化危机》电影并非近期RE游戏销量增长的主要推动力",
+    "summary": "扎克·克雷格的《生化危机》电影自上映以来票房大卖",
+    "source": "GameSpot",
+    "link": "https://www.gamespot.com/articles/the-resident-evil-movie-wasnt-the-main-force-behind-re-games-recent-sales-boost/",
+    "date": "2026-09-29 01:44"
+  },
+  {
+    "fp": "8207aa936034c612c6cbaea5b8826a57",
+    "title": "十月Prime Day游戏键盘优惠",
+    "summary": "游戏键盘在这里可是件大事（日子）。",
+    "source": "PC Gamer",
+    "link": "https://www.pcgamer.com/hardware/gaming-keyboards/best-prime-day-gaming-keyboard-deals/",
+    "date": "2026-09-29 01:44"
+  },
+  {
+    "fp": "2497af39969be98f850e8e2ddcc3bc23",
+    "title": "闹鬼图书分类模拟器《图书馆有问题》公布PC版",
+    "summary": "发行商Frosty Pop与发行商兼开发商Strange Scaffold宣布《Something is Wron》",
+    "source": "Gematsu",
+    "link": "https://www.gematsu.com/2026/09/haunted-book-sorting-simulator-something-is-wrong-with-the-library-announced-for-pc",
+    "date": "2026-09-29 01:44"
+  },
+  {
+    "fp": "59817348cd8b258a163ac37d535729a8",
+    "title": "据报道，XBOX以索尼交易的一小部分价格拿下了Physint",
+    "summary": "据透露，XBOX以远低于索尼最初成本的价格获得了Physint交易。",
+    "source": "Insider Gaming",
+    "link": "https://insider-gaming.com/xbox-reportedly-secured-physint-for-a-fraction-of-sonys-deal/",
+    "date": "2026-09-29 01:44"
+  },
+  {
+    "fp": "deef223541657cf2252d361000d1a86a",
+    "title": "《侠盗猎车手6》：发售日期、泄露内容、玩法及目前已知信息",
+    "summary": "寻找GTA 6最新消息？以下是我们所知的关于发布日期、泄露、游戏玩法等所有信息",
+    "source": "Insider Gaming",
+    "link": "https://insider-gaming.com/gta-6-release-date-leaks-gameplay/",
+    "date": "2026-09-29 01:44"
+  },
+  {
+    "fp": "e3e3cb321932794aca22e533325540a7",
+    "title": "2026年9月29日Wordle提示与答案：第1928期",
+    "summary": "需要Wordle #1928的帮助吗？获取今日提示、有用的起始词以及九月的答案",
+    "source": "Insider Gaming",
+    "link": "https://insider-gaming.com/wordle-hints-answer-september-29-2026-1928/",
+    "date": "2026-09-29 01:44"
+  },
+  {
     "fp": "ff5642a14d3e0576c8be7411c2147a4d",
     "title": "一加官宣枪神游戏手柄 ZmjjKK 联名限定版，融入射击准星元素",
     "summary": "IT之家 9 月 28 日消息，一加 (OnePlus) 官方今日下午公布了与《无畏契约》职业选手郑 \"ZmjjKK\" 永康合作打造的“一加枪神游戏手柄｜康康联",
@@ -310,93 +398,5 @@
     "source": "Gematsu",
     "link": "https://www.gematsu.com/2026/09/professor-layton-and-the-new-world-of-steam-tgs-2026-demo-gameplay",
     "date": "2026-09-26 16:08"
-  },
-  {
-    "fp": "eb8012d3298d9c27691da3f15de9f2f6",
-    "title": "DECAPOLICE 2026东京电玩展试玩演示",
-    "summary": "LEVEL-5发布了东京电玩展2026犯罪题材试玩版的完整通关视频",
-    "source": "Gematsu",
-    "link": "https://www.gematsu.com/2026/09/decapolice-tgs-2026-demo-gameplay",
-    "date": "2026-09-26 16:08"
-  },
-  {
-    "fp": "170bbd7424c3201c2b0090501179db18",
-    "title": "零食世界：重装上阵 TGS 2026 试玩演示",
-    "summary": "LEVEL-5发布了2026年东京电玩展动作游戏试玩完整流程",
-    "source": "Gematsu",
-    "link": "https://www.gematsu.com/2026/09/snack-world-reloaded-tgs-2026-demo-gameplay",
-    "date": "2026-09-26 16:08"
-  },
-  {
-    "fp": "046289259b1dd8016dcb9803bfaf3952",
-    "title": "曾豪言“10 年运营目标”：游戏《心之眼》开发商 Build a Rocket Boy 进入破产管理程序",
-    "summary": "IT之家 9 月 26 日消息，据外媒 Insider Gaming 报道，由《GTA》系列前制作人 Leslie Benzies 和 Mark Gerhard",
-    "source": "IT之家",
-    "link": "https://www.ithome.com/1/007/306.htm",
-    "date": "2026-09-26 10:35"
-  },
-  {
-    "fp": "43dba0b3c24eae6dc8caa8bc5ce30d9c",
-    "title": "微软CEO试图扼杀Xbox仅存的善意",
-    "summary": "在Xbox夏季裁员1600人后，微软游戏部门紧接着又裁员",
-    "source": "GameSpot",
-    "link": "https://www.gamespot.com/articles/microsoft-ceo-attempts-to-kill-remaining-xbox-goodwill/",
-    "date": "2026-09-26 10:35"
-  },
-  {
-    "fp": "344a3be1922d386b050c0496d71a33b7",
-    "title": "《鬼武者：剑之道》让我意识到我一直以来都玩错了动作游戏",
-    "summary": "《鬼武者：剑之道》中有好几场战斗让我很烦躁。大鵺。白",
-    "source": "GameSpot",
-    "link": "https://www.gamespot.com/articles/onimusha-way-of-the-sword-made-me-realize-ive-been-playing-action-games-wrong/",
-    "date": "2026-09-26 10:35"
-  },
-  {
-    "fp": "6f0c18ff3ea3aff4eedcada2629970dc",
-    "title": "放下一切，拿起爆米花：Majuular的4.5小时《网络创世纪》纪录片来了，准备吞噬你的周末",
-    "summary": "别再看书了，开始看片吧。",
-    "source": "PC Gamer",
-    "link": "https://www.pcgamer.com/games/rpg/drop-everything-and-grab-the-popcorn-majuulars-4-5-hour-documentary-on-ultima-online-is-here-to-devour-your-weekend/",
-    "date": "2026-09-26 10:35"
-  },
-  {
-    "fp": "89bff9919742eccdb2bdd66d0bfba79a",
-    "title": "我最爱的Steam 6美元RPG刚刚获得了野兽级免费“增强版”更新",
-    "summary": "它现在实际上正在以4美元的价格出售。",
-    "source": "PC Gamer",
-    "link": "https://www.pcgamer.com/games/rpg/my-favorite-usd6-rpg-on-steam-just-got-a-beastmode-free-enhanced-edition-update/",
-    "date": "2026-09-26 10:35"
-  },
-  {
-    "fp": "73c3ad4b6def2077c151d1164d9e4570",
-    "title": "圣恐怖宅邸 TGS 2026 试玩演示",
-    "summary": "LEVEL-5发布了《ghost …》东京电玩展2026试玩版的完整实机演示",
-    "source": "Gematsu",
-    "link": "https://www.gematsu.com/2026/09/holy-horror-mansion-tgs-2026-demo-gameplay",
-    "date": "2026-09-26 10:35"
-  },
-  {
-    "fp": "7b23ced3d120088ccc87787092956c22",
-    "title": "《地狱即我们》Switch 2移植及重大更新延期",
-    "summary": "《地狱即我们》将Switch 2移植版及重大更新推迟至10月27日。Rogue Factor表示",
-    "source": "Insider Gaming",
-    "link": "https://insider-gaming.com/hell-is-us-switch-2-release-delayed-october-27/",
-    "date": "2026-09-26 10:35"
-  },
-  {
-    "fp": "0d32d80a0b88eb75fda7169fb2c787cb",
-    "title": "六款《生化危机》游戏一年内各售出300万份",
-    "summary": "一年内六款《生化危机》游戏销量均突破300万份，彰显卡普空重制版实力",
-    "source": "Insider Gaming",
-    "link": "https://insider-gaming.com/six-resident-evil-games-sold-3-million-in-a-year/",
-    "date": "2026-09-26 10:35"
-  },
-  {
-    "fp": "230293800d85cb579bbb2e804ba00f5e",
-    "title": "LoL玩法主管August承认Renata Glasc需要重做",
-    "summary": "英雄联盟首席玩法设计师August承认雷娜塔·格拉斯克需要进行中型重做。",
-    "source": "Insider Gaming",
-    "link": "https://insider-gaming.com/league-of-legends-august-renata-glasc-rework/",
-    "date": "2026-09-26 10:35"
   }
 ]
