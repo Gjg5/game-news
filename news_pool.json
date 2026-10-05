@@ -1,5 +1,69 @@
 [
   {
+    "fp": "c08c1f8c611fa154b959c6ddd19c33e0",
+    "title": "《天国：拯救》开发商批评只注重“权力幻想”的“青少年”RPG",
+    "summary": "《天国：拯救》工作室联合创始人马丁·克利马对仅仅是……的RPG感到“厌倦和疲惫”",
+    "source": "IGN",
+    "link": "https://www.ign.com/articles/kingdom-come-deliverance-dev-calls-out-rpgs-for-teenagers-that-just-focus-on-power-fantasy",
+    "date": "2026-10-06 03:26"
+  },
+  {
+    "fp": "6d1af0f9554c99b0bd0aee15acfa20a6",
+    "title": "传奇日本Solid Snake配音演员想要“新的《合金装备》游戏”，但“没有小岛秀夫就不做”",
+    "summary": "Solid Snake的传奇日本配音演员渴望回归新作，但对……感到矛盾",
+    "source": "IGN",
+    "link": "https://www.ign.com/articles/legendary-japanese-solid-snake-actor-wants-new-metal-gear-game-but-wont-do-one-without-kojima",
+    "date": "2026-10-06 03:26"
+  },
+  {
+    "fp": "c818b56eda31458931923b49e720ba88",
+    "title": "为什么GTA工作室联合创始人避开GTA 6——以及所有开放世界游戏",
+    "summary": "Rockstar联合创始人丹·豪瑟于2020年离开公司，现经营一家名为Absurd Vent的新公司。",
+    "source": "GameSpot",
+    "link": "https://www.gamespot.com/articles/why-gta-studio-co-founder-is-avoiding-gta-6-and-all-open-world-games/",
+    "date": "2026-10-06 03:26"
+  },
+  {
+    "fp": "9b4308f8f326882b2ce9d0933f488162",
+    "title": "《现代战争4》DMZ模式回归，带来更深度的进度系统和更多玩法",
+    "summary": "Infinity Ward将在《现代战争4》中带回DMZ，动视最新博客提供",
+    "source": "GameSpot",
+    "link": "https://www.gamespot.com/articles/dmz-returns-in-modern-warfare-4-with-deeper-progression-and-more-ways-to-play/",
+    "date": "2026-10-06 03:26"
+  },
+  {
+    "fp": "7b75a823fa5aa602fa67b4257bd0987e",
+    "title": "《冰汽时代》Switch版10月19日发售",
+    "summary": "《冰汽时代》原版Switch版将于10月19日发售，开发商11 bit……",
+    "source": "Gematsu",
+    "link": "https://www.gematsu.com/2026/10/frostpunk-for-switch-launches-october-19",
+    "date": "2026-10-06 03:26"
+  },
+  {
+    "fp": "c6cffb0ab35f39beceeeb746831c6bb1",
+    "title": "クロスワールドMMORPG「AION2」，正式サービス開始。Unreal Engine 5で描かれる世界を，自由な飛行と",
+    "summary": "NCは，クロスワールドMMORPG「AION2」の正式サービスを本日開始した。UnrealEngine5によるビジュアル表現とアクション性を特徴とし，8クラスや",
+    "source": "4gamer",
+    "link": "https://www.4gamer.net/games/440/G044032/20261005037/",
+    "date": "2026-10-06 03:26"
+  },
+  {
+    "fp": "e5f3af0f348aca4693a9d39df677e1c5",
+    "title": "「Five Nights at Freddy's: Into the Pit」と「DOOM」が期間限定で無料に。Amaz",
+    "summary": "Amazonは2026年10月2日，AmazonLunaで配信中の無料ゲームのラインナップを更新した。今回配信されたのは，ベセスダ・ソフトワークスから2016年",
+    "source": "4gamer",
+    "link": "https://www.4gamer.net/games/305/G030569/20261005047/",
+    "date": "2026-10-06 03:26"
+  },
+  {
+    "fp": "bbb861fb2f04714cd14eaa4719363e36",
+    "title": "スマホ向け新作ゲームアプリ「勇者刑に処す -Game of the GODDESS-」，ティザーキービジュアルとPV第2",
+    "summary": "KADOKAWAは2026年10月3日，スマートフォン向け新作ゲーム「勇者刑に処す-GameoftheGODDESS-」のティザーキービジュアルとPV第2弾を解",
+    "source": "4gamer",
+    "link": "https://www.4gamer.net/games/994/G099465/20261005045/",
+    "date": "2026-10-06 03:26"
+  },
+  {
     "fp": "2b14f313c185f06d5f26d7377413707c",
     "title": "运营约 3 年，SE 跨平台游戏《最终幻想 7：永恒危机》将于 10 月 7 日停服",
     "summary": "IT之家 10 月 5 日消息，Square Enix 发文，宣布旗下跨平台游戏《最终幻想 7：永恒危机》将于北京时间 2026 年 10 月 7 日 14 时",
@@ -333,70 +397,6 @@
     "summary": "IT之家 10 月 4 日消息，在 10 月 1 日的华为 Mate 90 系列及全场景新品发布会上，华为年度旗舰 Mate 90 系列手机正式发布。其中，Ma",
     "source": "IT之家",
     "link": "https://www.ithome.com/1/009/580.htm",
-    "date": "2026-10-04 02:04"
-  },
-  {
-    "fp": "947ed6fb8002db75acc605a8bd0a65d9",
-    "title": "Steam Frame是VR游戏的绝唱时刻",
-    "summary": "Steam Frame是我用过的最好的VR头显。但尽管它解决了所有问题，我担心",
-    "source": "GameSpot",
-    "link": "https://www.gamespot.com/videos/steam-frame-is-vr-gamings-swan-song-moment/",
-    "date": "2026-10-04 02:04"
-  },
-  {
-    "fp": "910aec97df41aa3172b289cccdd884a7",
-    "title": "《巫师3》重制版同时在线玩家数创历史新高",
-    "summary": "抛硬币——哦，免费升级。",
-    "source": "PC Gamer",
-    "link": "https://www.pcgamer.com/games/the-witcher/the-witcher-3s-remaster-just-brought-it-to-a-new-all-time-concurrent-player-count-peak/",
-    "date": "2026-10-04 02:04"
-  },
-  {
-    "fp": "d5b357c0a63a54145291d650369b3ec3",
-    "title": "别管PC Gamer怎么说：《巫师3》永远是我2015年的年度最佳游戏",
-    "summary": "现在它看起来比以往任何时候都更好。",
-    "source": "PC Gamer",
-    "link": "https://www.pcgamer.com/games/the-witcher/forget-what-pc-gamer-said-the-witcher-3-will-always-be-my-2015-goty/",
-    "date": "2026-10-04 02:04"
-  },
-  {
-    "fp": "b90c39e9dab96cf5b5c286521480b84b",
-    "title": "Deadlock是MOBA角色设计的王者，这全归功于Valve对纽约风格的拥抱",
-    "summary": "我想成为其中一员…",
-    "source": "PC Gamer",
-    "link": "https://www.pcgamer.com/games/moba/deadlock-is-the-king-of-moba-character-designs-and-its-all-thanks-to-valves-embrace-of-new-yorkyness/",
-    "date": "2026-10-04 02:04"
-  },
-  {
-    "fp": "87e4e1e20d2ab5de4ed9c2d4714f4f2c",
-    "title": "根据我们一些最资深的类型游戏狂热爱好者，这是Steam秋季特卖中你应该购买的11款被低估的游戏",
-    "summary": "我们询问了11位非常挑剔的PCG员工，他们认为在Steam秋季特卖中每个人都应该买哪款游戏。",
-    "source": "PC Gamer",
-    "link": "https://www.pcgamer.com/games/11-underappreciated-games-you-should-buy-in-the-steam-autumn-sale-according-to-some-of-our-biggest-genre-sickos/",
-    "date": "2026-10-04 02:04"
-  },
-  {
-    "fp": "ee9c995854bca2b3123e70e3fcd3c2b4",
-    "title": "你在MMO中遇到的人是否曾改变过你的生活？",
-    "summary": "举杯敬你的数字挚友。",
-    "source": "PC Gamer",
-    "link": "https://www.pcgamer.com/games/mmo/has-your-life-ever-been-changed-by-someone-you-met-in-an-mmo/",
-    "date": "2026-10-04 02:04"
-  },
-  {
-    "fp": "18d46e4111f7288979789ad62fb6418f",
-    "title": "The Boba Teashop：Refill 宣布登陆 PS5、Xbox Series 和 PC",
-    "summary": "Serafini Productions宣布推出第一人称心理恐怖游戏《The Boba Teashop: Refill》",
-    "source": "Gematsu",
-    "link": "https://www.gematsu.com/2026/10/the-boba-teashop-refill-announced-for-ps5-xbox-series-and-pc",
-    "date": "2026-10-04 02:04"
-  },
-  {
-    "fp": "c1ff692371484eaad9e0e3986856dd43",
-    "title": "《极限竞速：地平线6》尚未正式发售便已在Steam上爆火",
-    "summary": "本周Steam上几款期待已久的游戏发布引发热议，但就《极限竞速：地平线6》而言，",
-    "source": "VG247",
-    "link": "https://www.vg247.com/forza-horizon-6-steam-numbers-big-launch",
     "date": "2026-10-04 02:04"
   }
 ]
