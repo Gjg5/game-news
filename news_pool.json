@@ -1,5 +1,29 @@
 [
   {
+    "fp": "c664eab0c15a56b21a6941d18c32db0f",
+    "title": "索尼新专利曝光：AI 可在 GPU 渲染完成前预测下一帧画面，减少游戏卡顿",
+    "summary": "IT之家 10 月 18 日消息，据科技媒体 TechSpot 今天报道，索尼最近申请一项专利，描绘以下场景：让 AI 在 GPU 完成渲染前预测下一帧画面，减",
+    "source": "IT之家",
+    "link": "https://www.ithome.com/1/014/615.htm",
+    "date": "2026-10-19 00:01"
+  },
+  {
+    "fp": "caa3740dd4045d80334dade95e43e2c1",
+    "title": "“各地存在很多分歧”：前《马拉松》总监乔·齐格勒谈领导Bungie的撤离射击游戏、游玩《流放之路》3437小时，以及为何",
+    "summary": "《马拉松》和《无畏契约》的前游戏总监带我们浏览他电脑上的游戏。",
+    "source": "PC Gamer",
+    "link": "https://www.pcgamer.com/gaming-industry/there-were-a-lot-of-disagreements-across-the-place-former-marathon-director-joe-ziegler-on-leading-bungies-extraction-shooter-playing-path-of-exile-for-3-437-hours-and-why-hell-never-uninstall-kingdom-hearts/",
+    "date": "2026-10-19 00:01"
+  },
+  {
+    "fp": "a0a554d1143b54b1e057417a6a26f804",
+    "title": "《极限竞速：地平线6》评测——这款面向所有人的驾驶游戏似乎仍无法摆脱其收集汽车的传承",
+    "summary": "有一种观点认为，对于长期运行的系列来说，要想像《极限竞速：地平线》那样始终保持人气",
+    "source": "VG247",
+    "link": "https://www.vg247.com/forza-horizon-6-review",
+    "date": "2026-10-19 00:01"
+  },
+  {
     "fp": "042fbfafcd6f56a772ae8b18351b2cb3",
     "title": "消息称索尼第一方游戏《羊蹄山之魂》销量约 540 万份，收入达 4.07 亿美元",
     "summary": "IT之家 10 月 18 日消息，市场分析机构 Alinea Analytics 现已公布索尼第一方游戏《羊蹄山之魂》的销售数据估算。本作目前销量约为 540 ",
@@ -373,30 +397,6 @@
     "summary": "Retroware发布了横版清版动作游戏《毒魔复仇》的新实机预告片。",
     "source": "Gematsu",
     "link": "https://www.gematsu.com/2026/10/toxic-crusaders-gameplay-trailer",
-    "date": "2026-10-17 01:04"
-  },
-  {
-    "fp": "b2624478225c05076aeef3cc13f40525",
-    "title": "HYPERyuki：单板滑雪辛迪加PC试玩版即将推出",
-    "summary": "发行商Acclaim与开发商Wabisabi Games即将发布Y2K风格极限滑雪游戏的试玩版",
-    "source": "Gematsu",
-    "link": "https://www.gematsu.com/2026/10/hyperyuki-snowboard-syndicate-pc-demo-coming-soon",
-    "date": "2026-10-17 01:04"
-  },
-  {
-    "fp": "70535a3d4626e7fa3ed3efbcd6f5e088",
-    "title": "Vixen 357将于10月23日登陆PS5、Xbox Series、PS4、Xbox One、Switch和PC平台",
-    "summary": "发行商Ratalaika Games和开发商Shinyuden将发布机甲战略RPG游戏《Vixen 357》登陆Play",
-    "source": "Gematsu",
-    "link": "https://www.gematsu.com/2026/10/vixen-357-coming-to-ps5-xbox-series-ps4-xbox-one-switch-and-pc-on-october-23",
-    "date": "2026-10-17 01:04"
-  },
-  {
-    "fp": "19db5a5d84d77110d834822bf1296958",
-    "title": "Steam成就系统全面改版现已开放测试",
-    "summary": "Steam Beta推出全新成就集系统，彻底改革成就运作方式",
-    "source": "Insider Gaming",
-    "link": "https://insider-gaming.com/steam-achievements-overhaul-now-available-in-beta/",
     "date": "2026-10-17 01:04"
   }
 ]
