@@ -1,5 +1,109 @@
 [
   {
+    "fp": "99152a58f90e9d0a2b80c6069c925d75",
+    "title": "DayZ Badlands收藏版黑胶盒装独家登陆IGN商店",
+    "summary": "庆祝《DayZ Badlands》发布，推出收录游戏原声的收藏版黑胶唱片套装",
+    "source": "IGN",
+    "link": "https://www.ign.com/articles/dayz-badlands-collectors-vinyl-box-set-ign-store",
+    "date": "2026-10-21 02:12"
+  },
+  {
+    "fp": "701a340c5ae2fe5832fd148fd15e5d62",
+    "title": "《皮克敏4》数字版在Switch 2升级前降至40美元",
+    "summary": "沃尔玛已将《皮克敏4》数字版降价至39.88美元，迎接其11月的Switch 2升级",
+    "source": "IGN",
+    "link": "https://www.ign.com/articles/pikmin-4-digital-on-sale-ahead-of-switch-2-upgrade",
+    "date": "2026-10-21 02:12"
+  },
+  {
+    "fp": "b5a5e90c8ae8b0be0db148ebe885f7f8",
+    "title": "这款角色动作僵尸游戏跌跌撞撞地走出了自己的路",
+    "summary": "愚蠢永不消亡，即便极其怪异，也留下了强烈的第一印象。融合了roguelite进程",
+    "source": "GameSpot",
+    "link": "https://www.gamespot.com/reviews/this-character-action-zombie-game-stumbles-into-its-own-way/",
+    "date": "2026-10-21 02:12"
+  },
+  {
+    "fp": "0dc54813e9c019f26ba1788d32c27fdd",
+    "title": "《使命召唤：现代战争4》拥有惊险刺激的战役和激动人心的DMZ模式改动",
+    "summary": "2019年，Infinity Ward重启了《使命召唤》的现代战争系列，呈现了一部粗犷而精致的作品。",
+    "source": "GameSpot",
+    "link": "https://www.gamespot.com/reviews/call-of-duty-modern-warfare-4-campaign-review/",
+    "date": "2026-10-21 02:12"
+  },
+  {
+    "fp": "1ce0054e96dd17d61aea05f184fd409e",
+    "title": "《守望先锋》总监探讨国王大道为何如此标志性，但承认“游戏中的每张地图都有投票权”",
+    "summary": "《守望先锋》中最好的地图是哪张？为什么是国王大道？",
+    "source": "PC Gamer",
+    "link": "https://www.pcgamer.com/games/fps/overwatchs-director-discusses-why-kings-row-is-so-iconic-but-admits-that-every-single-map-in-the-game-gets-a-vote/",
+    "date": "2026-10-21 02:12"
+  },
+  {
+    "fp": "6a41ed786d6a6d8d400c3c99c0b22dc2",
+    "title": "DLSS Swapper现在支持一次性更新多款游戏的所有超分辨率器，并新增Nvidia新的帧生成预设C。",
+    "summary": "瞬息全宇宙",
+    "source": "PC Gamer",
+    "link": "https://www.pcgamer.com/hardware/graphics-cards/dlss-swapper-now-lets-you-update-all-your-upscalers-in-multiple-games-at-once-adds-nvidias-new-frame-generation-preset-c/",
+    "date": "2026-10-21 02:12"
+  },
+  {
+    "fp": "3295a291d208d00b7180679b2ae30baa",
+    "title": "《漱口水》将于10月29日登陆PS5、Xbox Series、PS4和Switch平台",
+    "summary": "发行商CRITICAL REFLEX和开发商Wrong Organ将发布恐怖游戏《Mouthwashing》的PlayS版本。",
+    "source": "Gematsu",
+    "link": "https://www.gematsu.com/2026/10/mouthwashing-coming-to-ps5-xbox-series-ps4-and-switch-on-october-29",
+    "date": "2026-10-21 02:12"
+  },
+  {
+    "fp": "15ea082fd9629394c1095e8e790fda8e",
+    "title": "梦工厂《怪物史莱克2》重制版公布，登陆PS5、Xbox Series、Switch 2、Switch和PC平台",
+    "summary": "Aspyr宣布《梦工厂怪物史莱克2重制版》将登陆PlayStation 5、Xbox Series、Switch 2、Switch。",
+    "source": "Gematsu",
+    "link": "https://www.gematsu.com/2026/10/dreamworks-shrek-2-remastered-announced-for-ps5-xbox-series-switch-2-switch-and-pc",
+    "date": "2026-10-21 02:12"
+  },
+  {
+    "fp": "1467f28527d7c9acbfaf73b308af3fe0",
+    "title": "ZERO PARADES：导演剪辑版将于11月3日登陆Xbox Series",
+    "summary": "ZA/UM将随……一同发布间谍RPG《ZERO PARADES：导演剪辑版》的Xbox Series版本",
+    "source": "Gematsu",
+    "link": "https://www.gematsu.com/2026/10/zero-parades-directors-cut-coming-to-xbox-series-on-november-3",
+    "date": "2026-10-21 02:12"
+  },
+  {
+    "fp": "35640058988e6b2dd27520bb2f05a61a",
+    "title": "红吻新增Xbox Series版本，2027年发售",
+    "summary": "红吻，一款“黑暗时尚”的叙事RPG，讲述吸血鬼间谍家族周旋于……",
+    "source": "Gematsu",
+    "link": "https://www.gematsu.com/2026/10/red-kiss-adds-xbox-series-version-launches-in-2027",
+    "date": "2026-10-21 02:12"
+  },
+  {
+    "fp": "d14dd6f7d13ec96bf05e3d8bcc7cf2e1",
+    "title": "像素艺术生物收集模拟器《Waveling Island》宣布登陆Xbox Series和PC平台",
+    "summary": "《狂战士男孩》开发商BerserkBoy Games公布了像素艺术生物收集游戏《Waveling Island》。",
+    "source": "Gematsu",
+    "link": "https://www.gematsu.com/2026/10/pixel-art-creature-collecting-simulator-waveling-island-announced-for-xbox-series-pc",
+    "date": "2026-10-21 02:12"
+  },
+  {
+    "fp": "bb7693cbd143e2c6a4eb383d715ef98e",
+    "title": "2026年10月21日Wordle提示与答案：第1950期",
+    "summary": "需要Wordle #1950的帮助吗？获取今天的提示、有用的起始词以及10月2日的答案",
+    "source": "Insider Gaming",
+    "link": "https://insider-gaming.com/wordle-hints-answer-october-21-2026-1950/",
+    "date": "2026-10-21 02:12"
+  },
+  {
+    "fp": "914ddad95f2dc832380fa9df48bce154",
+    "title": "XBOX Game Pass 十月第二批游戏揭晓",
+    "summary": "2026年10月Xbox Game Pass第二批新增游戏名单已公布。更多",
+    "source": "Insider Gaming",
+    "link": "https://insider-gaming.com/xbox-game-pass-october-wave-2-games-revealed/",
+    "date": "2026-10-21 02:12"
+  },
+  {
     "fp": "c82f3898bd926180c997cd6b549f97fa",
     "title": "Steam 新一周游戏销量榜公布：《使命召唤：现代战争 4》登顶全球",
     "summary": "IT之家 10 月 20 日消息，Steam 平台现已公布了最新一周游戏销量排行榜（2026 年 10 月 13 日 - 2026 年 10 月 20 日，无免",
@@ -293,110 +397,6 @@
     "summary": "IT之家 10 月 19 日消息，据游戏媒体 Euro Gamer 今天报道，CDPR 现已为 Switch 2 版《巫师 3：狂猎 — 重制版》推送 5.01",
     "source": "IT之家",
     "link": "https://www.ithome.com/1/015/046.htm",
-    "date": "2026-10-19 23:18"
-  },
-  {
-    "fp": "f4245d5b7fd9823caffc4afb8b889355",
-    "title": "法国游戏店员工因骚乱中守门走红",
-    "summary": "生活成本危机加剧，燃料和住房成本不断上涨，引发了一波抗议浪潮",
-    "source": "IGN",
-    "link": "https://www.ign.com/articles/french-game-store-employee-goes-viral-for-defending-riots",
-    "date": "2026-10-19 23:18"
-  },
-  {
-    "fp": "4a89d9f63932fbeca3bd28e38c898d18",
-    "title": "《控制：共鸣》拥有初代所欠缺的一切，正因如此它才成功",
-    "summary": "随着最近发布的《Control Resonant》，Remedy Entertainment 回归其怪异的《Control》宇宙",
-    "source": "GameSpot",
-    "link": "https://www.gamespot.com/articles/control-resonant-is-everything-the-first-game-wasnt-and-thats-why-it-works/",
-    "date": "2026-10-19 23:18"
-  },
-  {
-    "fp": "84d959f1c1258e0f2e6f4de59cf3b331",
-    "title": "GameSir Nova Lite 2 评测",
-    "summary": "目前30美元以下手柄的最佳优惠。",
-    "source": "PC Gamer",
-    "link": "https://www.pcgamer.com/hardware/controllers/gamesir-nova-lite-2-review/",
-    "date": "2026-10-19 23:18"
-  },
-  {
-    "fp": "66e35a3016cfc3c5f87c32069b4804d9",
-    "title": "PS5独占的《恶魔之魂：重制版》现在不仅能在PC上运行，而且在RTX 5070上借助帧生成技术，以两倍于帧率上限的速度运",
-    "summary": "它本可以更流畅，但帧数翻倍也不容小觑。",
-    "source": "PC Gamer",
-    "link": "https://www.pcgamer.com/hardware/ps5-exclusive-demons-souls-remake-not-only-runs-on-pc-now-its-running-at-twice-the-fps-cap-on-an-rtx-5070-with-frame-gen/",
-    "date": "2026-10-19 23:18"
-  },
-  {
-    "fp": "3ae37ba037563fa73f3c094f9b6e215b",
-    "title": "没有发行商愿意要《逃生》，因为他们“宁愿把5万美元投在10款手游上”，所以Red Barrels转而依靠公共投资计划和自",
-    "summary": "《逃生》开发期间“一切都悬于一线”。",
-    "source": "PC Gamer",
-    "link": "https://www.pcgamer.com/games/horror/no-publisher-wanted-outlast-because-theyd-rather-invest-usd50-000-in-10-mobile-games-so-red-barrels-relied-on-public-investment-programs-and-their-own-savings-instead/",
-    "date": "2026-10-19 23:18"
-  },
-  {
-    "fp": "31a80fb35ca3029e8dd9e5156fdf67c7",
-    "title": "《Faraway》将于11月5日登陆PS5、Xbox Series、Switch 2、Switch和PC平台",
-    "summary": "遥远，一款随机生成的极简街机益智游戏，讲述一颗流星设计",
-    "source": "Gematsu",
-    "link": "https://www.gematsu.com/2026/10/faraway-launches-november-5-for-ps5-xbox-series-switch-2-switch-and-pc",
-    "date": "2026-10-19 23:18"
-  },
-  {
-    "fp": "c7e4c5fed99775e9b05ed2e6470179d5",
-    "title": "《指令8020：黑相集》在线多人模式更新现已推出",
-    "summary": "Supermassive Games为科幻生存恐怖冒险游戏《Di》发布了免费更新。",
-    "source": "Gematsu",
-    "link": "https://www.gematsu.com/2026/10/directive-8020-a-dark-pictures-game-online-multiplayer-mode-update-now-available",
-    "date": "2026-10-19 23:18"
-  },
-  {
-    "fp": "43c26ab5d0fd1e2ae6429add81b7ab99",
-    "title": "最终幻想共鸣完整FAQ——发布日期与时间、游戏通行证、抢先体验、价格与平台",
-    "summary": "我们整理了一个便捷的中心，为您展示关于Square E发布的所有必要信息。",
-    "source": "Insider Gaming",
-    "link": "https://insider-gaming.com/final-fantasy-resonance-faq-release/",
-    "date": "2026-10-19 23:18"
-  },
-  {
-    "fp": "9235649eb97aad273790e532a41bf245",
-    "title": "Saros 2.0 Zenith更新新增New Game+、Overlord Rush及更多奖杯",
-    "summary": "HouseMarque刚刚发布了Saros的2.0更新，名为Zenith，并添加了一大堆",
-    "source": "Insider Gaming",
-    "link": "https://insider-gaming.com/saros-2-0-zenith-update-adds-new-game-overlord-rush-and-more-trophies/",
-    "date": "2026-10-19 23:18"
-  },
-  {
-    "fp": "e573e42279e65ce21b289dbc2e1cde70",
-    "title": "《逃离游戏时光》常见问题解答——发售日期与时间、价格、抢先体验、主机与平台",
-    "summary": "了解《Escape From Playtime》的一切所需信息，尽在我们的实用FAQ中，涵盖其相关",
-    "source": "Insider Gaming",
-    "link": "https://insider-gaming.com/escape-from-playtime-release-date-times/",
-    "date": "2026-10-19 23:18"
-  },
-  {
-    "fp": "ca55987abfe268de296bdd1e1eeb67a9",
-    "title": "XBOX Game Pass 将于10月再下架8款游戏",
-    "summary": "玩家们已获悉XBOX Game Pass库中将有8款游戏被移除。",
-    "source": "Insider Gaming",
-    "link": "https://insider-gaming.com/xbox-game-pass-will-remove-8-more-games-in-october/",
-    "date": "2026-10-19 23:18"
-  },
-  {
-    "fp": "a425ff72ee83f4528f0ecde721ea79a3",
-    "title": "心理的な問題を抱えている転校生に学校を案内し，心の支えになる。ミニマムレトロビジュアルノベル「DISK-Y」，体験版をS",
-    "summary": "ゲーム開発者のびぶ氏は本日，PC用ソフト「DISK-Y」の体験版をSteamで公開した。サウンドとビジュアルが特徴的な本作は，サイコロジカルホラー要素を含むミニ",
-    "source": "4gamer",
-    "link": "https://www.4gamer.net/games/051/G105142/20261019048/",
-    "date": "2026-10-19 23:18"
-  },
-  {
-    "fp": "8025ee3f29e7bfacca0d4dbb95063d86",
-    "title": "店舗の経営に必要なのはAIM力！ ハイスピードショップ経営ゲーム「AMPANIC」，Steamで配信開始",
-    "summary": "個人開発者のYuLu氏は2026年10月16日，新作タイトル「AMPANIC」をリリースした。本作は，「AIM（エイム）」と「道具屋経営」を組み合わせた，すべて",
-    "source": "4gamer",
-    "link": "https://www.4gamer.net/games/047/G104742/20261019044/",
     "date": "2026-10-19 23:18"
   }
 ]
