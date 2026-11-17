@@ -1,5 +1,85 @@
 [
   {
+    "fp": "9c6fa8ded984a2dd5f5d2e70b928416d",
+    "title": "任天堂因《皮克敏4：任天堂Switch 2版+当多里学院》罕见遭遇差评轰炸",
+    "summary": "任天堂粉丝正以罕见的差评轰炸活动对该公司的表达不满。",
+    "source": "IGN",
+    "link": "https://www.ign.com/articles/nintendo-suffers-rare-review-bombing-for-pikmin-4-nintendo-switch-2-edition-dandori-academy",
+    "date": "2026-11-17 23:10"
+  },
+  {
+    "fp": "db243f595e944e0b7c26fb4a8e262e17",
+    "title": "在PS3和Xbox 360上实现GTA 5无缝角色切换的不可能任务",
+    "summary": "一位前Rockstar开发者如何让GTA 5的无缝角色切换在PS3和Xbox 360上运行。",
+    "source": "IGN",
+    "link": "https://www.ign.com/articles/gta-5s-seamless-character-switching-working-ps3-xbox-360",
+    "date": "2026-11-17 23:10"
+  },
+  {
+    "fp": "bdcdaed455cb2ef638dacd79355eb111",
+    "title": "育碧新老板希望工作室成为“游戏界的A24”",
+    "summary": "育碧近期聘请游戏行业资深人士克里斯托夫·哈特曼担任Cr的总经理",
+    "source": "GameSpot",
+    "link": "https://www.gamespot.com/articles/new-ubisoft-boss-wants-studio-to-become-a24-of-video-games/",
+    "date": "2026-11-17 23:10"
+  },
+  {
+    "fp": "90287da0f4992eba9c39662558712b62",
+    "title": "《Deadlock》让我相信我们都该在竞技游戏中进行角色扮演",
+    "summary": "每次进入Deadlock的团队大厅，我都会发送一条消息来开始比赛：“HI IM REM。”",
+    "source": "GameSpot",
+    "link": "https://www.gamespot.com/articles/deadlock-has-convinced-me-we-should-all-be-role-playing-in-competitive-games/",
+    "date": "2026-11-17 23:10"
+  },
+  {
+    "fp": "f930c186773608d49cd2f050b1109c9d",
+    "title": "索尼再次更新PS5，可能针对GTA 6盗版者",
+    "summary": "新的PS5固件更新已发布，但即便下载量高达1.2GB，版本26.07-14.23.00 d",
+    "source": "GameSpot",
+    "link": "https://www.gamespot.com/articles/sony-is-updating-the-ps5-again-and-it-might-have-gta-6-pirates-in-mind/",
+    "date": "2026-11-17 23:10"
+  },
+  {
+    "fp": "56d518c7a7f557e64547a36c091d639e",
+    "title": "多结局视觉小说《注意力成瘾的NEET》宣布登陆PC",
+    "summary": "发行商Kniv Studio与开发商Dreamery宣布了多结局游戏《Attention Addicted NEET》。",
+    "source": "Gematsu",
+    "link": "https://www.gematsu.com/2026/11/multi-ending-visual-novel-attention-addicted-neet-announced-for-pc",
+    "date": "2026-11-17 23:10"
+  },
+  {
+    "fp": "f931ec6f70a770e574ec8820ba2c0456",
+    "title": "索尼赢得PlayStation数字游戏诉讼",
+    "summary": "针对索尼因PlayStation商店垄断游戏价格而提起的持续诉讼已达成和解",
+    "source": "Insider Gaming",
+    "link": "https://insider-gaming.com/sony-wins-playstation-digital-games-lawsuit/",
+    "date": "2026-11-17 23:10"
+  },
+  {
+    "fp": "b4b7c9e4c112e443c0313bf7d348598d",
+    "title": "所有Rockstar Games发布的GTA 6截图",
+    "summary": "Rockstar Games花了一段时间才开始正式宣传《GTA 6》，但现在我们已有数百个",
+    "source": "Insider Gaming",
+    "link": "https://insider-gaming.com/gta-6-screenshots/",
+    "date": "2026-11-17 23:10"
+  },
+  {
+    "fp": "d73891eee6c6603a330d2d77ef6334ab",
+    "title": "PS5在14.23补丁中为GTA 6发布再获安全更新",
+    "summary": "PlayStation 5再次迎来固件更新，进一步提升主机安全性",
+    "source": "Insider Gaming",
+    "link": "https://insider-gaming.com/ps5-gets-another-security-update-for-gta-6-launch-in-14-23-patch/",
+    "date": "2026-11-17 23:10"
+  },
+  {
+    "fp": "8ac4135556d691a1d3ccbc53352cc788",
+    "title": "「Way of the Hunter 2」，暗視装置やサーマルスコープなどを追加する無料DLC「Pulsar Pack」",
+    "summary": "THQNordicJapanは，オープンワールド狩猟ゲーム「WayoftheHunter2」の無料DLC「PulsarPack」の配信を開始した。実在する光学機",
+    "source": "4gamer",
+    "link": "https://www.4gamer.net/games/979/G097942/20261117052/",
+    "date": "2026-11-17 23:10"
+  },
+  {
     "fp": "2b4b06ac94f7f33cf49dbc8249e181d0",
     "title": "米哈游重拳打击盗版周边：涉案商品价值超4000万元！",
     "summary": "【GameLook专稿，未经允许禁止转载！】GameLook报道/盗版周边长期被视作二游圈“灰色地带的小生意”，因为基数大、分布零散查处难、收益大，导致盗版现象",
@@ -318,85 +398,5 @@
     "source": "GameLook",
     "link": "http://www.gamelook.com.cn/2026/11/606233/",
     "date": "2026-11-16 02:13"
-  },
-  {
-    "fp": "afe294a6f35244825c904c809e6e6610",
-    "title": "“双11”一飞冲天，米哈游怎么就杀疯了？",
-    "summary": "双十一这天，米哈游给整个二游市场扔下了一颗重磅炸弹。 11月11日当天，《崩坏：星穹铁道》4.7版本“此刻，将群星付之一笑”正式实装。国内iOS端，《崩坏：星穹",
-    "source": "GameLook",
-    "link": "http://www.gamelook.com.cn/2026/11/606252/",
-    "date": "2026-11-16 02:13"
-  },
-  {
-    "fp": "4fd3fc8fdded12ae4b48cb888f4f9ac2",
-    "title": "Xbox 25周年：我对Xbox整个（且相当不可思议的）历史的回忆",
-    "summary": "我有幸在Xbox 25年的大部分时间里占据前排座位，报道了那些高光时刻",
-    "source": "IGN",
-    "link": "https://www.ign.com/articles/xbox-at-25-my-memories-from-across-xboxs-entire-and-quite-incredible-history",
-    "date": "2026-11-16 02:13"
-  },
-  {
-    "fp": "a1e9cd416412d7f1de41c2a83be20f15",
-    "title": "我爱我的Xbox 360——全部四台",
-    "summary": "Xbox今日庆祝其25周年纪念日，2026年11月15日。下面，我们回顾一下",
-    "source": "GameSpot",
-    "link": "https://www.gamespot.com/articles/i-loved-my-xbox-360s-all-four-of-them/",
-    "date": "2026-11-16 02:13"
-  },
-  {
-    "fp": "c6a859b0bbbff583916bba0908778f00",
-    "title": "疫情对Jackbox具有变革性：“我们从一个游戏品牌变成了家喻户晓的名字”",
-    "summary": "人们意识到，只需通过Zoom通话共享屏幕，大家就能一起玩游戏，这有多简单。",
-    "source": "PC Gamer",
-    "link": "https://www.pcgamer.com/games/the-pandemic-was-transformative-for-jackbox-we-went-from-a-gamer-name-to-a-household-name/",
-    "date": "2026-11-16 02:13"
-  },
-  {
-    "fp": "cbbcff90af6fc76c779c1b8b6151f1e1",
-    "title": "YouTuber兼喜剧演员Ashens在《博德之门3》中游玩了1000小时，并揭露了他玩过的最糟糕的复古游戏：“等你把它",
-    "summary": "电影制作人兼《你可能从未听说过的糟糕老游戏》作者带我们参观了他的",
-    "source": "PC Gamer",
-    "link": "https://www.pcgamer.com/gaming-industry/youtuber-and-comedian-ashens-has-1-000-hours-in-baldurs-gate-3-and-reveals-the-worst-retro-game-hes-ever-played-by-the-time-youve-hacked-it-to-work-its-just-no-fun-whatsoever/",
-    "date": "2026-11-16 02:13"
-  },
-  {
-    "fp": "219c1b2c8a21152c10c9a60f4c2fe06d",
-    "title": "落选金摇杆年度游戏，《影之刃零》官方回应：获得第二已大超预期！",
-    "summary": "【GameLook专稿，禁止转载！】 GameLook报道/今天（11月12日）凌晨，金摇杆奖颁奖典礼在英国伦敦落下帷幕（文末附完整获奖名单）。其中最重磅的“年",
-    "source": "GameLook",
-    "link": "http://www.gamelook.com.cn/2026/11/606303/",
-    "date": "2026-11-15 19:39"
-  },
-  {
-    "fp": "a8b748e333e1eafdadc7997cedc58e4d",
-    "title": "PC游戏中最烦人的任务发布者",
-    "summary": "经验值不值得。",
-    "source": "PC Gamer",
-    "link": "https://www.pcgamer.com/games/the-most-annoying-questgivers-in-pc-games/",
-    "date": "2026-11-15 19:39"
-  },
-  {
-    "fp": "59381d1e2304580785e875cc4816b0cf",
-    "title": "GTA 6原声带泄露确认属实，包含Lana Del Rey、Playboi Carti和Keith Richards的新",
-    "summary": "什么，没有侧身汉克·奥马利？",
-    "source": "PC Gamer",
-    "link": "https://www.pcgamer.com/games/grand-theft-auto/gta-6-soundtrack-leak-confirmed-accurate-with-new-songs-from-lana-del-rey-playboi-carti-and-keith-richards/",
-    "date": "2026-11-15 19:39"
-  },
-  {
-    "fp": "422bbc3d218ca5b94132636257f189ac",
-    "title": "英雄联盟：新黎明揭晓首支预告片，Riot宣布2027年将进行重大改革",
-    "summary": "在2026年英雄联盟全球总决赛决赛上，拳头游戏正式公布了《英雄联盟》",
-    "source": "IGN",
-    "link": "https://www.ign.com/articles/league-of-legends-new-dawn-unveiled-with-debut-trailer-riot-announces-major-overhaul-coming-in-2027",
-    "date": "2026-11-15 11:51"
-  },
-  {
-    "fp": "386534ba04b90cd985b4edde0ebda258",
-    "title": "游戏好笑还是玩家好笑？Jackbox首席执行官称，拥有喜剧编剧团队时会出现“很多误判”",
-    "summary": "测试喜剧游戏面临独特挑战。",
-    "source": "PC Gamer",
-    "link": "https://www.pcgamer.com/games/is-the-game-funny-or-just-the-players-jackbox-ceo-says-they-get-a-lot-of-false-positives-with-a-staff-of-comedy-writers/",
-    "date": "2026-11-15 11:51"
   }
 ]
